@@ -1,6 +1,6 @@
 # LucasBurda.com - Portfolio Website
 
-A modern, responsive portfolio website showcasing Lucas Burda's skills, projects, and professional experience.
+A modern, responsive portfolio website showcasing my skills, projects, and professional experience.
 
 ## 🚀 Features
 
@@ -25,6 +25,8 @@ A modern, responsive portfolio website showcasing Lucas Burda's skills, projects
 - Smoother, more modern microinteractions throughout
 - Full mobile and scaling optimization
 - Updated social links (GitHub, Instagram)
+- **Professional About Me and Hero Section**
+- **Updated project and contact descriptions**
 
 ## 🛠️ Technologies Used
 
@@ -65,6 +67,14 @@ LucasBurda.com/
 - **Weights**: 400, 500, 600, 700
 - **Responsive**: Scales appropriately on all devices
 
+## 👤 About Me
+
+I'm a passionate developer and technologist with a love for all things security and technology. With expertise in modern web technologies and offensive cybersecurity, I specialize in building scalable applications that solve real-world problems no matter the application.
+
+## 📂 Featured Project
+
+- **HackerBodega.com**: A digital superstore for hackers and tinkerers—find cyber gadgets, tools, and gear for ethical hacking and tech.
+
 ## 📱 Responsive Breakpoints
 
 - **Desktop**: 1200px and above
@@ -93,7 +103,7 @@ Feel free to fork this project and customize it for your own portfolio. If you f
 
 ## 📞 Contact
 
-For questions or support, please reach out through the contact form on the website or via the provided social media links.
+For questions or support, please reach out through the contact form on the website or via the provided social media links. Feel free to reach out if you'd like to collaborate or just want to chat.
 
 ---
 

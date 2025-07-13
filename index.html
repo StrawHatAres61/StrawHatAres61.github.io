@@ -5,12 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Burda - Portfolio</title>
     <meta name="description" content="Lucas Burda's professional portfolio showcasing skills, projects, and experience">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Preload Space Grotesk font for LCP -->
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/spacegrotesk/v22/i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2" type="font/woff2" crossorigin>
+    <!-- Inline critical CSS for .brand-name and header (simplified for LCP) -->
+    <style>
+      .main-header { min-height: 120px; width: 100%; z-index: 2000; position: sticky; top: 0; left: 0; background: rgba(20,28,48,0.82); backdrop-filter: blur(16px) saturate(180%); box-shadow: 0 8px 32px 0 rgba(31,41,55,0.18); border-bottom: 1.5px solid rgba(37,99,235,0.10); }
+      .nav-logo-area { padding-top: 2.2rem; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; width: 100%; }
+      .brand-name, .brand-name.brand-blue {
+        font-family: 'Space Grotesk', Arial, sans-serif;
+        font-size: 2.1rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        color: #2563eb;
+        line-height: 1.1;
+        background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        min-height: 2.5rem;
+        display: inline-block;
+        transition: none;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      @media (max-width: 900px) { .brand-name, .brand-name.brand-blue { font-size: 1.8rem; } }
+      @media (max-width: 600px) {
+        .brand-name, .brand-name.brand-blue {
+          font-size: 1.2rem;
+          padding-left: 0.2rem;
+          padding-right: 0.2rem;
+        }
+        .main-header { min-height: 70px; }
+        .nav-logo-area { padding-top: 1.1rem; margin-bottom: 0.2rem; }
+      }
+    </style>
+    <!-- Use font-display: swap for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="stylesheet" href="https://cdn.simpleicons.org/">
+    <!-- Load main stylesheet async for non-critical CSS -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
 </head>
 <body>
     <header class="main-header">
@@ -50,9 +92,9 @@
                 <h1 class="hero-title">Hi, I'm Lucas Burda</h1>
                 <p class="hero-subtitle">Web Developer, Flipper Zero Developer, and Penetration Tester.</p>
                 <p class="hero-description">
-                    I'm a passionate developer with a love for creating meaningful digital experiences. 
-                    With expertise in modern web technologies, I specialize in building scalable applications 
-                    that solve real-world problems.
+                    I'm a passionate developer and technologist with a love for all things security and technology. 
+                    With expertise in modern web technologies and offensive cybersecurity, I specialize in building scalable applications 
+                    that solve real-world problems no matter the application.
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -60,7 +102,10 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/images/PFP.jpg" alt="Lucas Burda" class="profile-photo">
+                <picture>
+                    <source srcset="assets/images/PFP.webp" type="image/webp">
+                    <img src="assets/images/PFP.webp" alt="Lucas Burda" class="profile-photo" width="300" height="300">
+                </picture>
             </div>
         </div>
     </section>
@@ -72,13 +117,12 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        I'm a passionate developer with a love for creating meaningful digital experiences. 
-                        With expertise in modern web technologies, I specialize in building scalable applications 
-                        that solve real-world problems.
+                        I'm a passionate developer and technologist with a love for all things security and technology. 
+                        With expertise in modern web technologies and offensive cybersecurity, I specialize in building scalable applications 
+                        that solve real-world problems no matter the application.
                     </p>
                     <p>
-                        When I'm not coding, you can find me exploring new technologies, contributing to open-source 
-                        projects, or sharing knowledge with the developer community.
+                        Beyond development, I am committed to continuous learning and staying ahead in the rapidly evolving fields of technology and cybersecurity. I value practical solutions, technical excellence, and a proactive approach to problem-solving.
                     </p>
                 </div>
                 <div class="about-image about-coming-soon">
@@ -112,11 +156,14 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="assets/images/project-taskapp.jpg" alt="HackerBodega.com" class="project-photo">
+                        <picture>
+                            <source srcset="assets/images/Bodega.webp" type="image/webp">
+                            <img src="assets/images/Bodega.webp" alt="HackerBodega.com" class="project-photo" width="400" height="200" loading="lazy">
+                        </picture>
                     </div>
                     <div class="project-content">
                         <h3>HackerBodega.com</h3>
-                        <p>A digital superstore for hackers and tinkerers—find cyber gadgets, tools, and gear for ethical hacking and tech fun.</p>
+                        <p>A digital superstore for hackers and tinkerers—find cyber gadgets, tools, and gear for ethical hacking and tech.</p>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
@@ -129,9 +176,6 @@
                 </div>
 
                 <div class="project-card coming-soon">
-                    <div class="project-image">
-                        <img src="assets/images/coming-soon.png" alt="Coming Soon" class="project-photo">
-                    </div>
                     <div class="project-content">
                         <h3>Coming Soon</h3>
                         <p>New project in progress—stay tuned for updates!</p>
@@ -225,7 +269,7 @@
                 <div class="contact-info">
                     <h3>Let's work together!</h3>
                     <p>I'm always interested in new opportunities and projects. 
-                       Feel free to reach out if you'd like to collaborate or just want to say hello.</p>
+                       Feel free to reach out if you'd like to collaborate or just want to chat.</p>
                     
                     <div class="contact-methods">
                         <div class="contact-method">
@@ -274,6 +318,20 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+window.addEventListener('load', function() {
+  var brand = document.querySelector('.brand-name.brand-blue');
+  if (brand) {
+    brand.style.background = 'linear-gradient(90deg, #2563eb 0%, #60a5fa 100%)';
+    brand.style.webkitBackgroundClip = 'text';
+    brand.style.webkitTextFillColor = 'transparent';
+    brand.style.backgroundClip = 'text';
+    brand.style.textFillColor = 'transparent';
+    brand.style.textShadow = '0 2px 8px rgba(37,99,235,0.10)';
+    brand.style.transition = '';
+  }
+});
+</script>
 </body>
 </html> 
