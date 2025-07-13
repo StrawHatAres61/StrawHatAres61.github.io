@@ -45,11 +45,8 @@ LucasBurda.com/
 ├── script.js           # JavaScript functionality
 ├── assets/             # Assets folder
 │   └── images/         # Image files
-│       ├── PFP.jpg
-│       ├── LBLOGO.jpg (unused)
-│       ├── about-photo.jpg
-│       ├── project-taskapp.jpg
-│       ├── coming-soon.png
+│       ├── PFP.webp
+│       ├── Bodega.webp
 │       └── README.md   # Image documentation
 └── README.md          # Project documentation
 ```
