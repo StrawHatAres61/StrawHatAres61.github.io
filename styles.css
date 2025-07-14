@@ -1093,16 +1093,38 @@ html {
     scroll-padding-top: 80px;
 } 
 
-.brand-name.brand-blue {
-    color: #2563eb;
-    background: none;
-    -webkit-text-fill-color: #2563eb;
-    text-fill-color: #2563eb;
-    font-weight: 700;
-    font-size: 2.1rem;
-    letter-spacing: 0.01em;
-    line-height: 1.1;
-    text-shadow: 0 2px 8px rgba(37,99,235,0.10);
+a.brand-name, a.brand-name.brand-blue {
+  color: #7c3aed !important;
+  -webkit-text-fill-color: #7c3aed !important;
+  text-fill-color: #7c3aed !important;
+  font-family: 'Space Grotesk', 'Inter', Arial, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  min-height: 2.5rem;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  background: none !important;
+  text-shadow: none !important;
+  transition: none !important;
+  outline: none !important;
+  filter: none !important;
+  transform: none !important;
+  cursor: pointer;
+}
+a.brand-name:hover, a.brand-name:focus, a.brand-name.brand-blue:hover, a.brand-name.brand-blue:focus {
+  color: #5b21b6 !important;
+  -webkit-text-fill-color: #5b21b6 !important;
+  text-fill-color: #5b21b6 !important;
+  outline: none !important;
+  background: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
 }
 
 .logo-img {
