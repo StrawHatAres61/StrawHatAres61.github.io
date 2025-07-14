@@ -298,3 +298,7 @@ console.log(`
 'color: #2563eb; font-size: 18px; font-weight: bold;',
 'color: #6b7280; font-size: 14px;'
 ); 
+
+window.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a.brand-name').forEach(el => el.classList.add('brand-animate'));
+}); 

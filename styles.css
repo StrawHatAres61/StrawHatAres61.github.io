@@ -1115,6 +1115,22 @@ a.brand-name, a.brand-name.brand-blue {
   filter: none !important;
   transform: none !important;
   cursor: pointer;
+  position: relative;
+  overflow: visible;
+}
+a.brand-name::after, a.brand-name.brand-blue::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 3px;
+  background: #7c3aed;
+  border-radius: 2px;
+  width: 0;
+  transition: width 0.5s cubic-bezier(.4,0,.2,1);
+}
+a.brand-name.brand-animate::after, a.brand-name.brand-blue.brand-animate::after {
+  width: 100%;
 }
 a.brand-name:hover, a.brand-name:focus, a.brand-name.brand-blue:hover, a.brand-name.brand-blue:focus {
   color: #5b21b6 !important;
@@ -1125,6 +1141,14 @@ a.brand-name:hover, a.brand-name:focus, a.brand-name.brand-blue:hover, a.brand-n
   text-shadow: none !important;
   filter: none !important;
   transform: none !important;
+}
+
+@keyframes brandPulse {
+  0%, 100% { color: #7c3aed; -webkit-text-fill-color: #7c3aed; text-fill-color: #7c3aed; }
+  50% { color: #a78bfa; -webkit-text-fill-color: #a78bfa; text-fill-color: #a78bfa; }
+}
+a.brand-name.brand-animate, a.brand-name.brand-blue.brand-animate {
+  animation: brandPulse 2.2s cubic-bezier(.4,0,.2,1) infinite;
 }
 
 .about-coming-soon .about-tile {
