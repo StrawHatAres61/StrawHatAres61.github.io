@@ -302,3 +302,40 @@ console.log(`
 window.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('a.brand-name').forEach(el => el.classList.add('brand-animate'));
 }); 
+
+// Animation Overhaul
+function supportsReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function animateOnScroll() {
+  if (supportsReducedMotion()) {
+    document.querySelectorAll('[data-anim]').forEach(el => {
+      el.classList.add('animate-in');
+      el.style.opacity = '';
+      el.style.transform = '';
+    });
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.classList.add('animate-in');
+        if (el.dataset.animDelay) {
+          el.style.animationDelay = el.dataset.animDelay;
+        }
+      } else {
+        entry.target.classList.remove('animate-in');
+        entry.target.style.animationDelay = '';
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('[data-anim]').forEach(el => {
+    el.classList.remove('animate-in');
+    el.style.opacity = '';
+    el.style.transform = '';
+    observer.observe(el);
+  });
+}
+document.addEventListener('DOMContentLoaded', animateOnScroll); 

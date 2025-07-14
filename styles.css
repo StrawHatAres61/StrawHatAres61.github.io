@@ -18,6 +18,19 @@ body {
     overflow-x: hidden;
 }
 
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.main-header {
+  margin: 0 !important;
+  padding: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  border: none !important;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1059,14 +1072,27 @@ section:not(:last-of-type)::after {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.section, section {
+[data-anim] {
   opacity: 0;
-  animation: fadeSlideIn 1s cubic-bezier(.4,0,.2,1) forwards;
-  animation-delay: 0.1s;
+  transform: translateY(40px) scale(0.98);
+  transition: none;
 }
-.project-card, .skill-item, .stat, .contact-method {
-  opacity: 0;
+.animate-in[data-anim="fade"] {
+  animation: fadeSlideIn 0.9s cubic-bezier(.4,0,.2,1) forwards;
+}
+.animate-in[data-anim="pop"] {
+  animation: popIn 0.9s cubic-bezier(.4,0,.2,1) forwards;
+}
+.animate-in[data-anim="stagger"] {
   animation: fadeInStagger 0.7s cubic-bezier(.4,0,.2,1) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-anim], .animate-in[data-anim] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }
 .project-card:nth-child(1), .skill-item:nth-child(1), .stat:nth-child(1), .contact-method:nth-child(1) { animation-delay: 0.15s; }
 .project-card:nth-child(2), .skill-item:nth-child(2), .stat:nth-child(2), .contact-method:nth-child(2) { animation-delay: 0.3s; }
@@ -1560,5 +1586,54 @@ html {
   .btn:active, .hero-buttons .btn:active {
     transform: scale(0.98) !important;
     box-shadow: 0 1px 4px #2563eb11 !important;
+  }
+} 
+
+@media (max-width: 600px) {
+  .hide-header-mobile {
+    display: none !important;
+  }
+  .mobile-center {
+    margin: 0 !important;
+    text-align: center !important;
+    width: 100vw !important;
+    height: 100%;
+    min-height: 0;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 0 !important;
+  }
+  .main-header {
+    min-height: 60px !important;
+    height: 60px !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+  .main-brand-full {
+    display: block !important;
+  }
+  .main-brand-short {
+    display: none !important;
+  }
+} 
+
+@media (max-width: 900px) {
+  .main-brand-full {
+    display: block !important;
+  }
+  .main-brand-short {
+    display: none !important;
   }
 } 

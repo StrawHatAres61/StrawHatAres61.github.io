@@ -10,59 +10,99 @@
     <!-- Inline critical CSS for .brand-name and header (simplified for LCP) -->
     <style>
       .main-header { min-height: 120px; width: 100%; z-index: 2000; position: sticky; top: 0; left: 0; background: rgba(20,28,48,0.92); box-shadow: 0 2px 8px 0 rgba(31,41,55,0.10); border-bottom: 1.5px solid rgba(37,99,235,0.10); }
-      .nav-logo-area { padding-top: 2.2rem; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; width: 100%; }
-      .brand-name, .brand-name.brand-blue {
-        font-family: 'Space Grotesk', Arial, sans-serif;
+      .nav-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
+      .nav-logo-area { padding-top: 2.2rem; display: block; text-align: center; margin-bottom: 0.5rem; width: 100%; }
+      .main-brand {
+        font-family: 'Space Grotesk', system-ui, Arial, sans-serif;
         font-size: 2.1rem;
         font-weight: 700;
-        letter-spacing: 0.01em;
         color: #2563eb;
+        letter-spacing: 0.01em;
         line-height: 1.1;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-        min-height: 2.5rem;
-        display: inline-block;
-        transition: none;
-        white-space: nowrap;
-        overflow: hidden;
+        display: block;
+        margin: 0.5rem auto;
       }
+      .main-brand-full { font-size: 2.1rem; }
+      .main-brand-short { display: none; font-size: 2.1rem; }
       .hero-description {
         font-size: 1.1rem;
         margin-bottom: 2rem;
         opacity: 1;
         line-height: 1.6;
       }
-      @media (max-width: 900px) { .brand-name, .brand-name.brand-blue { font-size: 1.8rem; } }
-      @media (max-width: 600px) {
-        .brand-name, .brand-name.brand-blue {
-          font-size: 1.2rem;
-          padding-left: 0.2rem;
-          padding-right: 0.2rem;
+      @media (max-width: 900px) {
+        .main-brand-full { display: none; }
+        .main-brand-short { display: block; font-size: 1.5rem; }
+        .main-brand {
+          font-size: 1.8rem;
         }
-        .main-header { min-height: 70px; }
-        .nav-logo-area { padding-top: 1.1rem; margin-bottom: 0.2rem; }
+        .main-header {
+          min-height: 90px;
+        }
+        .nav-logo-area {
+          padding-top: 1.5rem;
+        }
+        .nav-container {
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+        }
+        .nav-logo-area {
+          display: block;
+          padding-top: 0;
+          margin-bottom: 0;
+          width: auto;
+          text-align: left;
+        }
+        .main-brand-short {
+          margin-left: 1rem;
+          margin-right: 1.2rem;
+          display: block;
+        }
+        .main-brand-full {
+          display: none;
+        }
+        .nav-menu.modern-nav {
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          align-items: center;
+          gap: 1.2rem;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+      }
+      @media (max-width: 600px) {
+        .main-header {
+          min-height: 90px;
+        }
+        .main-brand-short { font-size: 1.1rem; }
+        .main-brand { font-size: 1.2rem; padding-left: 0.2rem; padding-right: 0.2rem; }
+        .nav-logo-area { padding-top: 0.7rem; margin-bottom: 0.2rem; }
       }
     </style>
-    <!-- Use font-display: swap for Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"></noscript>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <!-- Preconnect for Bunny Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,700|roboto:400,500,700|open-sans:400,600,700&display=swap" rel="stylesheet" />
+    <!-- NOTE: For best performance, enable gzip/Brotli compression and set long cache headers for static assets on your server or CDN. -->
     <link rel="stylesheet" href="https://cdn.simpleicons.org/">
     <!-- Load main stylesheet async for non-critical CSS -->
     <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <!-- Font Awesome for skill and button icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header class="main-header">
+    <header class="main-header hide-header-mobile">
         <nav class="navbar glassy-navbar">
             <div class="nav-container">
-                <div class="nav-logo-area" style="display: flex; align-items: center; justify-content: center; width: 100%;">
-                    <span style="font-family: 'Space Grotesk', Arial, sans-serif; font-size: 2.1rem; font-weight: 700; color: #2563eb; letter-spacing: 0.01em; line-height: 1.1; min-height: 2.5rem; display: inline-block; margin: 0.5rem 0;">Lucas Burda</span>
+                <div class="nav-logo-area mobile-center">
+                    <span class="main-brand main-brand-full">Lucas Burda</span>
+                    <span class="main-brand main-brand-short">LB</span>
                 </div>
-                <ul class="nav-menu modern-nav">
+                <ul class="nav-menu modern-nav hide-on-mobile">
                     <li class="nav-item">
                         <a href="#home" class="nav-link">Home</a>
                     </li>
@@ -85,7 +125,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" data-anim="fade">
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">Hi, I'm Lucas Burda</h1>
@@ -103,14 +143,14 @@
             <div class="hero-image">
                 <picture>
                     <source srcset="assets/images/PFP.webp" type="image/webp">
-                    <img src="assets/images/PFP.webp" alt="Lucas Burda" class="profile-photo" width="300" height="300">
+                    <img src="assets/images/PFP.webp" alt="Lucas Burda" class="profile-photo" width="300" height="300" loading="lazy">
                 </picture>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about" data-anim="fade">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
@@ -125,22 +165,22 @@
                     </p>
                 </div>
                 <div class="about-image about-coming-soon">
-                    <div class="about-tile">
+                    <div class="about-tile" data-anim="pop" data-anim-delay="0.2s">
                         <h4>Coming Soon</h4>
                         <p>More projects and clients coming soon—stay tuned!</p>
                     </div>
                 </div>
             </div>
             <div class="about-stats">
-                <div class="stat">
+                <div class="stat" data-anim="pop" data-anim-delay="0.4s">
                     <h3>1</h3>
                     <p>Year Experience</p>
                 </div>
-                <div class="stat">
+                <div class="stat" data-anim="pop" data-anim-delay="0.6s">
                     <h3>2</h3>
                     <p>Projects Completed</p>
                 </div>
-                <div class="stat">
+                <div class="stat" data-anim="pop" data-anim-delay="0.8s">
                     <h3>2</h3>
                     <p>Happy Clients</p>
                 </div>
@@ -149,11 +189,11 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects" data-anim="fade">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-anim="stagger" data-anim-delay="0.15s">
                     <div class="project-image">
                         <picture>
                             <source srcset="assets/images/Bodega.webp" type="image/webp">
@@ -174,7 +214,7 @@
                     </div>
                 </div>
 
-                <div class="project-card coming-soon">
+                <div class="project-card coming-soon" data-anim="stagger" data-anim-delay="0.3s">
                     <div class="project-content">
                         <h3>Coming Soon</h3>
                         <p>New project in progress—stay tuned for updates!</p>
@@ -193,22 +233,22 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills" data-anim="fade">
         <div class="container">
             <h2 class="section-title">Skills & Technologies</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Frontend</h3>
                     <div class="skill-items">
-                        <div class="skill-item">
+                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.15s">
                             <i class="fab fa-html5"></i>
                             <span>HTML5</span>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.3s">
                             <i class="fab fa-css3-alt"></i>
                             <span>CSS3</span>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.45s">
                             <i class="fab fa-js"></i>
                             <span>JavaScript</span>
                         </div>
@@ -219,7 +259,7 @@
                 <div class="skill-category">
                     <h3>Backend</h3>
                     <div class="skill-items">
-                        <div class="skill-item">
+                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.15s">
                             <i class="fab fa-python"></i>
                             <span>Python</span>
                         </div>
@@ -229,27 +269,27 @@
                 <div class="skill-category">
                     <h3>Tools & Others</h3>
                     <div class="skill-items">
-                        <div class="skill-item">
+                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.15s">
                             <i class="fab fa-git-alt"></i>
                             <span>Git</span>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.3s">
                             <i class="fab fa-docker"></i>
                             <span>Docker</span>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.15s">
                             <i class="fab fa-linux"></i>
                             <span>Linux</span>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.3s">
                             <i class="fab fa-linux"></i>
                             <span>Kali Linux</span>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.15s">
                             <i class="fas fa-gamepad"></i>
                             <span>Flipper Zero</span>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.3s">
                             <i class="fas fa-mobile-alt"></i>
                             <span>M5Stick</span>
                         </div>
@@ -261,7 +301,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" data-anim="fade">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
@@ -271,14 +311,14 @@
                        Feel free to reach out if you'd like to collaborate or just want to chat.</p>
                     
                     <div class="contact-methods">
-                        <div class="contact-method">
+                        <div class="contact-method" data-anim="stagger" data-anim-delay="0.15s">
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
                                 <p><a href="mailto:Lucas@lucasburda.com" class="email-link">Lucas@lucasburda.com</a></p>
                             </div>
                         </div>
-                        <div class="contact-method">
+                        <div class="contact-method" data-anim="stagger" data-anim-delay="0.3s">
                             <i class="fas fa-map-marker-alt"></i>
                             <span class="location-label">Location</span>
                             <span class="location-value">Spokane, WA.</span>
