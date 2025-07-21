@@ -4,296 +4,372 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Burda - Portfolio</title>
-    <meta name="description" content="Lucas Burda's professional portfolio showcasing skills, projects, and experience">
-    <!-- Preload Space Grotesk font for LCP -->
-    <!-- (Removed direct .woff2 preload; use Google Fonts CSS preload below) -->
-    <!-- Inline critical CSS for .brand-name and header (simplified for LCP) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      .main-header { min-height: 120px; width: 100%; z-index: 2000; position: sticky; top: 0; left: 0; background: rgba(20,28,48,0.92); box-shadow: 0 2px 8px 0 rgba(31,41,55,0.10); border-bottom: 1.5px solid rgba(37,99,235,0.10); }
-      .nav-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
-      .nav-logo-area { padding-top: 2.2rem; display: block; text-align: center; margin-bottom: 0.5rem; width: 100%; }
-      .main-brand {
-        font-family: 'Space Grotesk', system-ui, Arial, sans-serif;
-        font-size: 2.1rem;
-        font-weight: 700;
-        color: #2563eb;
-        letter-spacing: 0.01em;
-        line-height: 1.1;
-        display: block;
-        margin: 0.5rem auto;
-      }
-      .main-brand-full { font-size: 2.1rem; }
-      .main-brand-short { display: none; font-size: 2.1rem; }
-      .hero-description {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-        opacity: 1;
-        line-height: 1.6;
-      }
-      @media (max-width: 900px) {
-        .main-brand-full { display: none; }
-        .main-brand-short { display: block; font-size: 1.5rem; }
-        .main-brand {
-          font-size: 1.8rem;
+        body {
+            font-family: 'Montserrat', sans-serif;
         }
-        .main-header {
-          min-height: 90px;
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
         }
-        .nav-logo-area {
-          padding-top: 1.5rem;
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .nav-container {
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
         }
-        .nav-logo-area {
-          display: block;
-          padding-top: 0;
-          margin-bottom: 0;
-          width: auto;
-          text-align: left;
+        
+        .delay-100 {
+            animation-delay: 0.1s;
         }
-        .main-brand-short {
-          margin-left: 1rem;
-          margin-right: 1.2rem;
-          display: block;
+        
+        .delay-200 {
+            animation-delay: 0.2s;
         }
-        .main-brand-full {
-          display: none;
+        
+        .delay-300 {
+            animation-delay: 0.3s;
         }
-        .nav-menu.modern-nav {
-          display: flex;
-          flex: 1;
-          justify-content: center;
-          align-items: center;
-          gap: 1.2rem;
-          margin: 0;
-          padding: 0;
-          list-style: none;
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-      }
-      @media (max-width: 600px) {
-        .main-header {
-          min-height: 90px;
+        
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
         }
-        .main-brand-short { font-size: 1.1rem; }
-        .main-brand { font-size: 1.2rem; padding-left: 0.2rem; padding-right: 0.2rem; }
-        .nav-logo-area { padding-top: 0.7rem; margin-bottom: 0.2rem; }
-      }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 4px;
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Card hover effect */
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Skill pill hover */
+        .skill-pill:hover {
+            transform: scale(1.05);
+        }
+        /* PFP hover animation */
+        .profile-photo {
+            transition: transform 0.42s cubic-bezier(.4,2,.6,1), box-shadow 0.42s cubic-bezier(.4,2,.6,1), border 0.42s cubic-bezier(.4,2,.6,1);
+            box-shadow: 0 4px 16px 0 rgba(14,165,233,0.13);
+            border: 4px solid rgba(14,165,233,0.18);
+        }
+        .profile-photo:hover {
+            transform: scale(1.18) rotate(-4deg);
+            box-shadow: 0 0 0 18px rgba(14,165,233,0.28), 0 18px 48px 0 rgba(139,92,246,0.22);
+            border: 4px solid #0ea5e9;
+            z-index: 3;
+        }
+        .profile-photo:active {
+            transform: scale(0.98) rotate(-1deg);
+        }
+        /* PFP ring glow on hover */
+        .pfp-glow {
+            pointer-events: none;
+            position: absolute;
+            inset: -16px;
+            border-radius: 9999px;
+            box-shadow: 0 0 0 0 rgba(14,165,233,0.0);
+            transition: box-shadow 0.42s cubic-bezier(.4,2,.6,1);
+        }
+        .profile-photo:hover + .pfp-glow {
+            box-shadow: 0 0 0 24px rgba(14,165,233,0.28), 0 0 48px 16px rgba(139,92,246,0.18);
+        }
+
+        /* Button hover animation */
+        .btn-animated, .btn, button, .social-link, .w-10.h-10.rounded-full {
+            transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s cubic-bezier(.4,2,.6,1);
+        }
+        .btn-animated:hover, .btn:hover, button:hover, .social-link:hover, .w-10.h-10.rounded-full:hover {
+            transform: scale(1.06) translateY(-2px);
+            box-shadow: 0 6px 24px 0 rgba(14,165,233,0.18), 0 1.5px 8px 0 rgba(139,92,246,0.10);
+        }
+        /* Navigation link hover effect */
+        .nav-link {
+            position: relative;
+            transition: color 0.18s cubic-bezier(.4,2,.6,1);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: -4px;
+            height: 2px;
+            background: linear-gradient(90deg, #0ea5e9, #8b5cf6);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transition: transform 0.22s cubic-bezier(.4,2,.6,1);
+            z-index: 1;
+        }
+        .nav-link:hover, .nav-link:focus {
+            color: #0ea5e9;
+        }
+        .nav-link:hover::after, .nav-link:focus::after {
+            transform: scaleX(1);
+        }
+
+        /* Tile hover effect for project cards, stats, and about tiles */
+        .tile-hover, .project-card, .stat, .about-tile {
+            transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s cubic-bezier(.4,2,.6,1);
+        }
+        .tile-hover:hover, .stat:hover, .about-tile:hover {
+            transform: scale(1.045) translateY(-4px);
+            box-shadow: 0 8px 32px 0 rgba(14,165,233,0.13), 0 2px 12px 0 rgba(139,92,246,0.10);
+            z-index: 2;
+        }
+        /* Stronger FX for showcase (project) tiles */
+        .project-card.tile-hover:hover, .project-card:hover {
+            transform: scale(1.09) translateY(-8px) rotate(-1deg);
+            box-shadow: 0 16px 48px 0 rgba(14,165,233,0.22), 0 6px 24px 0 rgba(139,92,246,0.16);
+            z-index: 3;
+        }
+        /* Hero section button pop animation */
+        .hero-btn-pop {
+            transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s cubic-bezier(.4,2,.6,1);
+            will-change: transform, box-shadow;
+        }
+        .hero-btn-pop:hover, .hero-btn-pop:focus {
+            transform: scale(1.11) rotate(-1.5deg);
+            box-shadow: 0 8px 32px 0 rgba(14,165,233,0.18), 0 2px 12px 0 rgba(139,92,246,0.13);
+            z-index: 2;
+        }
+        /* Contact Section Animations */
+        .contact-method {
+            transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s cubic-bezier(.4,2,.6,1);
+        }
+        .contact-method:hover {
+            transform: scale(1.03) translateY(-2px);
+            box-shadow: 0 6px 24px 0 rgba(14,165,233,0.13);
+        }
+        .contact-form input:hover, .contact-form textarea:hover {
+            border-color: #0ea5e9;
+        }
     </style>
-    <!-- Preconnect for Bunny Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=inter:400,500,700|roboto:400,500,700|open-sans:400,600,700&display=swap" rel="stylesheet" />
-    <!-- NOTE: For best performance, enable gzip/Brotli compression and set long cache headers for static assets on your server or CDN. -->
-    <link rel="stylesheet" href="https://cdn.simpleicons.org/">
-    <!-- Load main stylesheet async for non-critical CSS -->
-    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
-    <!-- Font Awesome for skill and button icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <header class="main-header hide-header-mobile">
-        <nav class="navbar glassy-navbar">
-            <div class="nav-container">
-                <div class="nav-logo-area mobile-center">
-                    <span class="main-brand main-brand-full">Lucas Burda</span>
-                    <span class="main-brand main-brand-short">LB</span>
+<body class="bg-slate-900 text-slate-100 antialiased font-montserrat">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-slate-900/90 backdrop-blur-md z-50 border-b border-slate-800">
+        <div id="div-1" class="container mx-auto px-6 py-4">
+            <div id="div-2" class="flex justify-between items-center">
+                <a href="#home" class="text-2xl font-bold gradient-text">LB</a>
+                <div id="div-3" class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="#about" class="nav-link hover:text-cyan-400 transition-colors">About</a>
+                    <a href="#projects" class="nav-link hover:text-cyan-400 transition-colors">Projects</a>
+                    <a href="#skills" class="nav-link hover:text-cyan-400 transition-colors">Skills</a>
+                    <a href="#contact" class="nav-link hover:text-cyan-400 transition-colors">Contact</a>
                 </div>
-                <ul class="nav-menu modern-nav hide-on-mobile">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#projects" class="nav-link">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#skills" class="nav-link">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-                <!-- Remove hamburger menu -->
+                <button id="mobile-menu-button" class="md:hidden text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-        </nav>
-    </header>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 w-full py-4 px-6">
+            <div id="div-4" class="flex flex-col space-y-4">
+                <a href="#home" class="nav-link hover:text-cyan-400 transition-colors">Home</a>
+                <a href="#about" class="nav-link hover:text-cyan-400 transition-colors">About</a>
+                <a href="#projects" class="nav-link hover:text-cyan-400 transition-colors">Projects</a>
+                <a href="#skills" class="nav-link hover:text-cyan-400 transition-colors">Skills</a>
+                <a href="#contact" class="nav-link hover:text-cyan-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero" data-anim="fade">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Hi, I'm Lucas Burda</h1>
-                <p class="hero-subtitle">Web Developer, Flipper Zero Developer, and Penetration Tester.</p>
-                <p class="hero-description">
-                    I'm a passionate developer and technologist with a love for all things security and technology. 
-                    With expertise in modern web technologies and offensive cybersecurity, I specialize in building scalable applications 
-                    that solve real-world problems no matter the application.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div id="div-5" class="container mx-auto px-6 py-20">
+            <div id="div-6" class="flex flex-col md:flex-row items-center">
+                <div id="div-7" class="md:w-1/2 mb-12 md:mb-0 animate-fade-in text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-5">Hi, I'm <span class="gradient-text">Lucas Burda</span></h1>
+                    <h2 class="text-xl md:text-2xl text-cyan-400 mb-8">Web Developer, Flipper Zero Developer, and Penetration Tester</h2>
+                    <p class="text-slate-300 mb-8 mx-auto md:mx-0 max-w-xl">
+                        I'm a passionate developer and technologist with a love for all things security and technology. 
+                        With expertise in modern web technologies and offensive cybersecurity, I specialize in building 
+                        scalable applications that solve real-world problems no matter the application.
+                    </p>
+                    <div id="div-8" class="flex flex-wrap gap-4 justify-center md:justify-start">
+                        <a href="#projects" class="btn-animated hero-btn-pop px-6 py-3 bg-cyan-600 hover:bg-cyan-700 rounded-lg font-medium transition-colors animate-fade-in delay-100">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="btn-animated hero-btn-pop px-6 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 rounded-lg font-medium transition-colors animate-fade-in delay-200">
+                            Get In Touch
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <picture>
-                    <source srcset="assets/images/PFP.webp" type="image/webp">
-                    <img src="assets/images/PFP.webp" alt="Lucas Burda" class="profile-photo" width="300" height="300" loading="lazy">
-                </picture>
+                <div id="div-9" class="md:w-1/2 flex justify-center animate-fade-in delay-300">
+                    <div id="div-10" class="relative">
+                        <img src="https://lucasburda.com/assets/images/PFP.webp" alt="Lucas Burda" class="profile-photo rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-cyan-400/30">
+                        <div id="div-11" class="pfp-glow"></div>
+                        <div id="div-12" class="absolute -inset-4 rounded-full border-2 border-cyan-400/50 animate-pulse"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about" data-anim="fade">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
+    <section id="about" class="py-20 bg-slate-800/50">
+        <div id="div-13" class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">About Me</h2>
+            <div id="div-14" class="flex flex-col md:flex-row gap-12">
+                <div id="div-15" class="md:w-1/2 animate-fade-in">
+                    <p class="text-slate-300 mb-6">
                         I'm a passionate developer and technologist with a love for all things security and technology. 
-                        With expertise in modern web technologies and offensive cybersecurity, I specialize in building scalable applications 
-                        that solve real-world problems no matter the application.
+                        With expertise in modern web technologies and offensive cybersecurity, I specialize in building 
+                        scalable applications that solve real-world problems no matter the application.
                     </p>
-                    <p>
-                        Beyond development, I am committed to continuous learning and staying ahead in the rapidly evolving fields of technology and cybersecurity. I value practical solutions, technical excellence, and a proactive approach to problem-solving.
+                    <p class="text-slate-300 mb-6">
+                        Beyond development, I am committed to continuous learning and staying ahead in the rapidly evolving 
+                        fields of technology and cybersecurity. I value practical solutions, technical excellence, and a 
+                        proactive approach to problem-solving.
                     </p>
-                </div>
-                <div class="about-image about-coming-soon">
-                    <div class="about-tile" data-anim="pop" data-anim-delay="0.2s">
-                        <h4>Coming Soon</h4>
-                        <p>More projects and clients coming soon—stay tuned!</p>
+                    <div id="div-16" class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 tile-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-cyan-400">Coming Soon</h3>
+                        <p class="text-slate-300">
+                            More projects and clients coming soon—stay tuned!
+                        </p>
                     </div>
                 </div>
-            </div>
-            <div class="about-stats">
-                <div class="stat" data-anim="pop" data-anim-delay="0.4s">
-                    <h3>1</h3>
-                    <p>Year Experience</p>
-                </div>
-                <div class="stat" data-anim="pop" data-anim-delay="0.6s">
-                    <h3>2</h3>
-                    <p>Projects Completed</p>
-                </div>
-                <div class="stat" data-anim="pop" data-anim-delay="0.8s">
-                    <h3>2</h3>
-                    <p>Happy Clients</p>
+                <div id="div-17" class="md:w-1/2 animate-fade-in delay-100">
+                    <div id="div-18" class="grid grid-cols-2 gap-6">
+                        <div id="div-19" class="stat bg-slate-800/50 p-6 rounded-xl border border-slate-700 text-center tile-hover">
+                            <span class="text-5xl font-bold gradient-text">1</span>
+                            <p class="mt-2 text-slate-300">Year Experience</p>
+                        </div>
+                        <div id="div-20" class="stat bg-slate-800/50 p-6 rounded-xl border border-slate-700 text-center tile-hover">
+                            <span class="text-5xl font-bold gradient-text">2</span>
+                            <p class="mt-2 text-slate-300">Projects Completed</p>
+                        </div>
+                        <div id="div-21" class="stat bg-slate-800/50 p-6 rounded-xl border border-slate-700 text-center tile-hover">
+                            <span class="text-5xl font-bold gradient-text">2</span>
+                            <p class="mt-2 text-slate-300">Happy Clients</p>
+                        </div>
+                        <div id="div-22" class="stat bg-slate-800/50 p-6 rounded-xl border border-slate-700 text-center tile-hover">
+                            <span class="text-5xl font-bold gradient-text">∞</span>
+                            <p class="mt-2 text-slate-300">Passion for Tech</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects" data-anim="fade">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-anim="stagger" data-anim-delay="0.15s">
-                    <div class="project-image">
-                        <picture>
-                            <source srcset="assets/images/Bodega.webp" type="image/webp">
-                            <img src="assets/images/Bodega.webp" alt="HackerBodega.com" class="project-photo" width="400" height="200" loading="lazy">
-                        </picture>
+    <section id="projects" class="py-20">
+        <div id="div-23" class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Featured Projects</h2>
+            <div id="div-24" class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div id="div-25" class="project-card bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700 transition-all duration-300 animate-fade-in tile-hover">
+                    <div id="div-26" class="h-48 overflow-hidden">
+                        <img src="https://lucasburda.com/assets/images/Bodega.webp" alt="HackerBodega.com" class="w-full h-full object-cover">
                     </div>
-                    <div class="project-content">
-                        <h3>HackerBodega.com</h3>
-                        <p>A digital superstore for hackers and tinkerers—find cyber gadgets, tools, and gear for ethical hacking and tech.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
+                    <div id="div-27" class="p-6">
+                        <h3 class="text-xl font-bold mb-2">HackerBodega.com</h3>
+                        <p class="text-slate-300 mb-4">
+                            A digital superstore for hackers and tinkerers—find cyber gadgets, tools, and gear for ethical hacking and tech.
+                        </p>
+                        <div id="div-28" class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-pill bg-cyan-900/50 text-cyan-400 px-3 py-1 rounded-full text-sm transition-transform">HTML</span>
+                            <span class="skill-pill bg-cyan-900/50 text-cyan-400 px-3 py-1 rounded-full text-sm transition-transform">CSS</span>
+                            <span class="skill-pill bg-cyan-900/50 text-cyan-400 px-3 py-1 rounded-full text-sm transition-transform">JavaScript</span>
                         </div>
-                        <div class="project-links">
-                            <a href="https://HackerBodega.com" class="project-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Live</a>
+                        <a href="https://hackerbodega.com/" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors">
+                            Live Demo <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div id="div-29" class="project-card bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700 transition-all duration-300 animate-fade-in delay-100 tile-hover">
+                    <div id="div-30" class="h-48 bg-gradient-to-br from-purple-900/50 to-blue-900/50 flex items-center justify-center">
+                        <i class="fas fa-lock text-6xl opacity-30"></i>
+                    </div>
+                    <div id="div-31" class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Coming Soon</h3>
+                        <p class="text-slate-300 mb-4">
+                            New project in progress—stay tuned for updates!
+                        </p>
+                        <div id="div-32" class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-pill bg-purple-900/50 text-purple-400 px-3 py-1 rounded-full text-sm transition-transform">TBA</span>
+                        </div>
+                        <div id="div-33" class="flex space-x-4">
+                            <span class="text-slate-500">Code</span>
+                            <span class="text-slate-500">Live</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="project-card coming-soon" data-anim="stagger" data-anim-delay="0.3s">
-                    <div class="project-content">
-                        <h3>Coming Soon</h3>
-                        <p>New project in progress—stay tuned for updates!</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">TBA</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link disabled"><i class="fab fa-github"></i> Code</span>
-                            <span class="project-link disabled"><i class="fas fa-external-link-alt"></i> Live</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills" data-anim="fade">
-        <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <div class="skill-items">
-                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.15s">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.3s">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
-                        </div>
-                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.45s">
-                            <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <div class="skill-items">
-                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.15s">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
+    <section id="skills" class="py-20 bg-slate-800/50">
+        <div id="div-34" class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Skills & Technologies</h2>
+            <div id="div-35" class="grid md:grid-cols-3 gap-8">
+                <!-- Frontend -->
+                <div id="div-36" class="animate-fade-in">
+                    <div id="div-37" class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 h-full tile-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-cyan-400 flex items-center">
+                            <i class="fas fa-laptop-code mr-2"></i> Frontend
+                        </h3>
+                        <div id="div-38" class="flex flex-wrap gap-3">
+                            <span class="skill-pill bg-cyan-900/50 text-cyan-400 px-4 py-2 rounded-lg transition-transform">HTML5</span>
+                            <span class="skill-pill bg-cyan-900/50 text-cyan-400 px-4 py-2 rounded-lg transition-transform">CSS3</span>
+                            <span class="skill-pill bg-cyan-900/50 text-cyan-400 px-4 py-2 rounded-lg transition-transform">JavaScript</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="skill-category">
-                    <h3>Tools & Others</h3>
-                    <div class="skill-items">
-                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.15s">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git</span>
+                
+                <!-- Backend -->
+                <div id="div-39" class="animate-fade-in delay-100">
+                    <div id="div-40" class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 h-full tile-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-purple-400 flex items-center">
+                            <i class="fas fa-server mr-2"></i> Backend
+                        </h3>
+                        <div id="div-41" class="flex flex-wrap gap-3">
+                            <span class="skill-pill bg-purple-900/50 text-purple-400 px-4 py-2 rounded-lg transition-transform">Python</span>
                         </div>
-                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.3s">
-                            <i class="fab fa-docker"></i>
-                            <span>Docker</span>
+                    </div>
+                </div>
+                
+                <!-- Tools -->
+                <div id="div-42" class="animate-fade-in delay-200">
+                    <div id="div-43" class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 h-full tile-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-emerald-400 flex items-center">
+                            <i class="fas fa-tools mr-2"></i> Tools & Others
+                        </h3>
+                        <div id="div-44" class="flex flex-wrap gap-3">
+                            <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">Git</span>
+                            <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">Docker</span>
+                            <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">Linux</span>
+                            <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">Kali Linux</span>
+                            <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">Flipper Zero</span>
+                            <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">M5Stick</span>
                         </div>
-                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.15s">
-                            <i class="fab fa-linux"></i>
-                            <span>Linux</span>
-                        </div>
-                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.3s">
-                            <i class="fab fa-linux"></i>
-                            <span>Kali Linux</span>
-                        </div>
-                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.15s">
-                            <i class="fas fa-gamepad"></i>
-                            <span>Flipper Zero</span>
-                        </div>
-                        <div class="skill-item" data-anim="stagger" data-anim-delay="0.3s">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>M5Stick</span>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -301,62 +377,170 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact" data-anim="fade">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's work together!</h3>
-                    <p>I'm always interested in new opportunities and projects. 
-                       Feel free to reach out if you'd like to collaborate or just want to chat.</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method" data-anim="stagger" data-anim-delay="0.15s">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p><a href="mailto:Lucas@lucasburda.com" class="email-link">Lucas@lucasburda.com</a></p>
+    <section id="contact" class="py-20">
+        <div id="div-45" class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Get In Touch</h2>
+            <div id="div-46" class="flex flex-col md:flex-row gap-12">
+                <div id="div-47" class="md:w-1/2 animate-fade-in">
+                    <h3 class="text-2xl font-semibold mb-4">Let's work together!</h3>
+                    <p class="text-slate-300 mb-8">
+                        I'm always interested in new opportunities and projects. Feel free to reach out if you'd like to collaborate or just want to chat.
+                    </p>
+                    <div id="div-48" class="space-y-6">
+                        <div id="div-49" class="flex items-start contact-method">
+                            <i class="fas fa-envelope text-cyan-400 mt-1 mr-4"></i>
+                            <div id="div-50">
+                                <h4 class="font-semibold">Email</h4>
+                                <a href="mailto:Lucas@lucasburda.com" class="text-cyan-400 hover:text-cyan-300 transition-colors">Lucas@lucasburda.com</a>
                             </div>
                         </div>
-                        <div class="contact-method" data-anim="stagger" data-anim-delay="0.3s">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span class="location-label">Location</span>
-                            <span class="location-value">Spokane, WA.</span>
+                        <div id="div-51" class="flex items-start contact-method">
+                            <i class="fas fa-map-marker-alt text-cyan-400 mt-1 mr-4"></i>
+                            <div id="div-52">
+                                <h4 class="font-semibold">Location</h4>
+                                <p class="text-slate-300">Spokane, WA</p>
+                            </div>
+                        </div>
+                        <div id="div-53" class="flex space-x-5 mt-8">
+                            <a href="https://github.com/StrawHatAres61" target="_blank" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-cyan-600 transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="https://www.instagram.com/lucasb611.exe/" target="_blank" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-pink-600 transition-colors">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
                         </div>
                     </div>
-
-                    <div class="social-links">
-                        <a href="https://github.com/StrawHatAres61" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                        <a href="https://www.instagram.com/lucasb611.exe/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                    </div>
                 </div>
-
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                <div id="div-54" class="md:w-1/2 animate-fade-in delay-100">
+                    <form class="contact-form bg-slate-800/50 p-8 rounded-xl border border-slate-700">
+                        <div id="div-55" class="mb-6">
+                            <label for="name" class="block mb-2 font-medium">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div id="div-56" class="mb-6">
+                            <label for="email" class="block mb-2 font-medium">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div id="div-57" class="mb-6">
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+                        </div>
+                        <button type="submit" class="btn-animated w-full px-6 py-3 bg-cyan-600 hover:bg-cyan-700 rounded-lg font-medium transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Lucas Burda. All rights reserved.</p>
+    <footer class="py-8 border-t border-slate-800">
+        <div id="div-58" class="container mx-auto px-6 text-center">
+            <p class="text-slate-400">© 2025 Lucas Burda. All rights reserved.</p>
         </div>
     </footer>
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-cyan-600 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    <script src="script.js" defer></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission
+        const form = document.querySelector('.contact-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                if (!name || !email || !message) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+
+                const subject = `Message from ${name} via Portfolio`;
+                const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+                
+                const mailtoLink = `mailto:Lucas@lucasburda.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                
+                window.location.href = mailtoLink;
+
+                setTimeout(() => {
+                    alert("Your email client should be open. Thanks for your message!");
+                    form.reset();
+                }, 500);
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html> 

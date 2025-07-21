@@ -1,0 +1,93 @@
+---
+Date: [Fill in current date/time]
+
+Prompt 1:
+User:
+implement
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Burda - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        ...
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+    ...
+</body>
+</html>
+
+i want this all changed into our current HTML
+
+---
+Date: [Fill in current date/time]
+
+Prompt 9:
+User:
+also add hover FX to the PFP and make the tile fx on the showcase tiles stonger
+
+Assistant:
+- Enhanced the PFP (profile photo) hover effect: increased scale, brighter border, and a more pronounced glow.
+- Made the tile-hover effect on showcase (project) tiles stronger: increased scale, shadow intensity, and added a slight rotation for a more dramatic effect.
+
+Change Summary:
+- PFP hover FX is now more visually distinct and interactive.
+- Showcase/project tiles have a much stronger, more modern hover effect.
+
+---
+
+Prompt 10:
+User:
+for the top home section lets make sure those buttons have a little more animation
+
+Assistant:
+- Added a lively pop/slant animation to the two main hero buttons in the Home section. On hover, they scale up and slant for extra emphasis.
+
+Change Summary:
+- Hero buttons now have a more animated, attention-grabbing hover effect.
+
+---
+
+Prompt 11:
+User:
+when i hover over them they drop down really weirdly then pop back up. lets make sure they do that little slant animation without moving up or down
+
+Assistant:
+- Refined the hero button pop animation to remove any vertical movement. Now, the animation only scales and rotates (slants) on hover, with no up or down motion.
+
+Change Summary:
+- Hero button hover is now a clean slant/pop with no vertical jump.
+
+---
+
+Prompt 12:
+User:
+issue is still present.
+
+Assistant:
+- Removed the keyframe animation from the hero button hover effect. Now, only a smooth CSS transition is used for scaling and rotation, ensuring no jump or drop-down effect.
+
+Change Summary:
+- Hero button hover is now a smooth, non-jumpy slant/pop effect.
+
+---
+
+Prompt 13:
+User:
+ok good. add all of this to changelog
+
+Assistant:
+- All recent animation and UX changes have been logged, including PFP hover FX, stronger showcase tile FX, improved hero button animation, and the fix for hero button hover movement.
+
+Change Summary:
+- Changelog updated with all recent prompts, responses, and code/UX changes for full traceability. 
