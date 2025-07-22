@@ -1,83 +1,63 @@
-# LucasBurda.com - Portfolio Website
+# LucasBurda.com - Modern Portfolio Website
 
-A modern, responsive portfolio website showcasing my skills, projects, and professional experience.
+A modern, responsive portfolio website built with Tailwind CSS, showcasing my skills, projects, and professional experience with a focus on clean design and lively animations.
 
 ## 🚀 Features
 
-- **Sticky Glassy Header** - Always visible, translucent, and clickable animated name
-- **Responsive Design** - Optimized for all devices and screen sizes
-- **Modern UI/UX** - Clean, professional design with smooth, lively animations
-- **Animated Section Dividers** - Soft gradients separate each section
-- **Interactive Tiles** - Projects, stats, and about tiles animate and glow on hover
-- **Hero Buttons** - "View My Work" and "Get In Touch" have bold, animated effects
-- **Contact Form** - Functional contact form with validation
-- **Social Links** - GitHub and Instagram with animated icons
-- **Mobile Optimization** - Fluid scaling, touch-friendly, and fast
-- **SEO Optimized** - Proper meta tags and semantic HTML
-- **Performance Focused** - Fast loading with optimized assets
+- **Fully Responsive Design** - Optimized for all devices, from mobile to desktop.
+- **Modern UI/UX** - Clean, professional design with smooth, lively animations and microinteractions.
+- **Interactive Elements** - Engaging hover effects on the profile photo, navigation links, buttons, and tiles.
+- **Dynamic Hero Section** - Centered text on mobile, with animated buttons and a clean layout.
+- **Functional Contact Form** - Opens the user's default email client with all form data pre-filled.
+- **Customizable & Tagged** - All `div` elements are tagged with unique IDs for easy troubleshooting and customization.
+- **SEO Optimized** - Proper meta tags and semantic HTML for better search engine visibility.
+- **Performance Focused** - Fast loading times with optimized assets and a high Lighthouse score.
 
 ## 🆕 Recent Improvements
 
-- Sticky, glassy header with animated clickable name
-- Animated section dividers and underlines
-- Animated, interactive project/about/stat tiles
-- More extreme and lively hero button animations
-- Smoother, more modern microinteractions throughout
-- Full mobile and scaling optimization
-- Updated social links (GitHub, Instagram)
-- **Professional About Me and Hero Section**
-- **Updated project and contact descriptions**
+- **Enhanced Animations**: Added and refined hover effects for the PFP (profile photo), navigation, buttons, and tiles.
+- **Improved Layout**: Centered the hero section text on mobile and cleaned up spacing for better readability.
+- **Functional Contact Form**: The "Send Message" button now opens the user's email client with form data.
+- **Div Tagging**: All `div` elements now have unique IDs for easier troubleshooting.
+- **Resized Social Buttons**: GitHub and Instagram icons are now larger for better visibility.
+- **Modern Typography**: Switched to the Montserrat font for a clean, professional look.
 
 ## 🛠️ Technologies Used
 
-- **HTML5** - Semantic markup structure
-- **CSS3** - Modern styling with Flexbox and Grid
-- **JavaScript (ES6+)** - Interactive functionality
-- **Font Awesome** - Icons and visual elements
-- **Google Fonts** - Space Grotesk font family for typography
+- **HTML5** - Semantic markup structure.
+- **Tailwind CSS** - For a utility-first CSS workflow.
+- **JavaScript (ES6+)** - For interactive functionality and animations.
+- **Font Awesome** - For icons and visual elements.
+- **Google Fonts** - For modern typography (Montserrat).
 
 ## 📁 Project Structure
 
 ```
 LucasBurda.com/
 ├── index.html          # Main HTML file
-├── styles.css          # CSS styles and responsive design
-├── script.js           # JavaScript functionality
-├── assets/             # Assets folder
+├── package.json        # Project dependencies (if any)
+├── assets/             # Media assets
 │   └── images/         # Image files
 │       ├── PFP.webp
 │       ├── Bodega.webp
-│       └── README.md   # Image documentation
-└── README.md          # Project documentation
+│       └── README.md
+└── README.md          # This file
 ```
 
-## 🎨 Design Features
+## 🎨 Design & Customization
 
 ### Color Scheme
-- **Primary Blue**: #2563eb
-- **Accent Blue**: #60a5fa
-- **Text Colors**: #e5e7eb (light), #cbd5e1 (muted)
-- **Background**: #0f172a (dark), #1e293b (section)
+- **Primary Gradient**: Cyan to Purple (`#0ea5e9` to `#8b5cf6`)
+- **Text Color**: Light Slate (`#e5e7eb`)
+- **Background**: Dark Slate (`#1e293b`)
 
-### Typography
-- **Font Family**: Space Grotesk (Google Fonts)
-- **Weights**: 400, 500, 600, 700
-- **Responsive**: Scales appropriately on all devices
-
-## 👤 About Me
-
-I'm a passionate developer and technologist with a love for all things security and technology. With expertise in modern web technologies and offensive cybersecurity, I specialize in building scalable applications that solve real-world problems no matter the application.
-
-## 📂 Featured Project
-
-- **HackerBodega.com**: A digital superstore for hackers and tinkerers—find cyber gadgets, tools, and gear for ethical hacking and tech.
+### Customization
+All animations, colors, and styles can be easily customized within the `<style>` block in `index.html`. All `div` elements have unique IDs (e.g., `div-1`, `div-2`) for easy targeting.
 
 ## 📱 Responsive Breakpoints
 
-- **Desktop**: 1200px and above
-- **Tablet**: 768px - 1199px
-- **Mobile**: 767px and below
-- **Small Mobile**: 480px and below
+- **Desktop**: `md:` prefix in Tailwind (`768px` and above)
+- **Mobile**: Default styles (below `768px`)
 
 ## 🔧 Browser Support
 
@@ -87,20 +67,13 @@ I'm a passionate developer and technologist with a love for all things security 
 - ✅ Edge (latest)
 - ✅ Mobile browsers
 
-## 📈 Performance
-
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
-- **Load Time**: < 2 seconds on 3G connection
-- **File Size**: Optimized images and minified code
-- **SEO**: Proper meta tags and semantic structure
-
 ## 🤝 Contributing
 
 Feel free to fork this project and customize it for your own portfolio. If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
 
 ## 📞 Contact
 
-For questions or support, please reach out through the contact form on the website or via the provided social media links. Feel free to reach out if you'd like to collaborate or just want to chat.
+For questions or support, please reach out through the contact form on the website or via the provided social media links. I'm always open to collaboration or a friendly chat!
 
 ---
 

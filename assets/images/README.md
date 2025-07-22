@@ -1,6 +1,11 @@
 # Portfolio Images
 
-This folder contains all images used in the Lucas Burda portfolio website.
+This directory contains the images used in the Lucas Burda portfolio website.
+
+## Files
+
+- **PFP.webp**: The main profile photo used in the hero and about sections.
+- **Bodega.webp**: A screenshot of the HackerBodega.com project, featured in the projects section.
 
 ## Current Images
 
