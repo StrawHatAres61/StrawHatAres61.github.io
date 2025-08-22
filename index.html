@@ -9,14 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
     <style>
+        /* --- Base & Typography --- */
         body {
             font-family: 'Montserrat', sans-serif;
         }
         .font-montserrat {
             font-family: 'Montserrat', sans-serif;
         }
-        /* Custom animations */
+        /* --- Custom Animations --- */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -26,6 +29,7 @@
             animation: fadeIn 0.8s ease-out forwards;
         }
         
+        /* Animation Delays */
         .delay-100 {
             animation-delay: 0.1s;
         }
@@ -38,7 +42,7 @@
             animation-delay: 0.3s;
         }
         
-        /* Custom scrollbar */
+        /* --- Custom Scrollbar --- */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -52,7 +56,7 @@
             border-radius: 4px;
         }
         
-        /* Gradient text */
+        /* --- Text Styles --- */
         .gradient-text {
             background: linear-gradient(90deg, #0ea5e9, #8b5cf6);
             -webkit-background-clip: text;
@@ -60,17 +64,17 @@
             color: transparent;
         }
         
-        /* Card hover effect */
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        /* --- Component: Skill Pills --- */
+        .skill-pill {
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
         }
-        
-        /* Skill pill hover */
         .skill-pill:hover {
-            transform: scale(1.05);
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.4), 0 0 8px rgba(139, 92, 246, 0.3);
+            background-color: rgba(14, 165, 233, 0.15);
         }
-        /* PFP hover animation */
+
+        /* --- Component: Profile Photo (PFP) --- */
         .profile-photo {
             transition: transform 0.42s cubic-bezier(.4,2,.6,1), box-shadow 0.42s cubic-bezier(.4,2,.6,1), border 0.42s cubic-bezier(.4,2,.6,1);
             box-shadow: 0 4px 16px 0 rgba(14,165,233,0.13);
@@ -85,7 +89,7 @@
         .profile-photo:active {
             transform: scale(0.98) rotate(-1deg);
         }
-        /* PFP ring glow on hover */
+
         .pfp-glow {
             pointer-events: none;
             position: absolute;
@@ -98,15 +102,16 @@
             box-shadow: 0 0 0 24px rgba(14,165,233,0.28), 0 0 48px 16px rgba(139,92,246,0.18);
         }
 
-        /* Button hover animation */
+        /* --- Component: Buttons --- */
         .btn-animated, .btn, button, .social-link, .w-10.h-10.rounded-full {
             transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s cubic-bezier(.4,2,.6,1);
         }
         .btn-animated:hover, .btn:hover, button:hover, .social-link:hover, .w-10.h-10.rounded-full:hover {
             transform: scale(1.06) translateY(-2px);
-            box-shadow: 0 6px 24px 0 rgba(14,165,233,0.18), 0 1.5px 8px 0 rgba(139,92,246,0.10);
+            box-shadow: 0 6px 24px 0 rgba(14,165,233,0.18), 0 1.5px 8px 0 rgba(139,92,246,0.12);
         }
-        /* Navigation link hover effect */
+
+        /* --- Component: Navigation --- */
         .nav-link {
             position: relative;
             transition: color 0.18s cubic-bezier(.4,2,.6,1);
@@ -129,7 +134,7 @@
             transform: scaleX(1);
         }
 
-        /* Tile hover effect for project cards, stats, and about tiles */
+        /* --- Component: Card & Tile Hover Effects --- */
         .tile-hover, .project-card, .stat, .about-tile {
             transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s cubic-bezier(.4,2,.6,1);
         }
@@ -138,13 +143,14 @@
             box-shadow: 0 8px 32px 0 rgba(14,165,233,0.13), 0 2px 12px 0 rgba(139,92,246,0.10);
             z-index: 2;
         }
-        /* Stronger FX for showcase (project) tiles */
+        /* Stronger hover effect for project cards */
         .project-card.tile-hover:hover, .project-card:hover {
             transform: scale(1.09) translateY(-8px) rotate(-1deg);
             box-shadow: 0 16px 48px 0 rgba(14,165,233,0.22), 0 6px 24px 0 rgba(139,92,246,0.16);
             z-index: 3;
         }
-        /* Hero section button pop animation */
+
+        /* --- Component: Hero Section Buttons --- */
         .hero-btn-pop {
             transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s cubic-bezier(.4,2,.6,1);
             will-change: transform, box-shadow;
@@ -154,7 +160,8 @@
             box-shadow: 0 8px 32px 0 rgba(14,165,233,0.18), 0 2px 12px 0 rgba(139,92,246,0.13);
             z-index: 2;
         }
-        /* Contact Section Animations */
+
+        /* --- Component: Contact Form --- */
         .contact-method {
             transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s cubic-bezier(.4,2,.6,1);
         }
@@ -166,7 +173,7 @@
             border-color: #0ea5e9;
         }
         
-        /* Logo glow effect */
+        /* --- Component: Logo --- */
         .logo-glow {
             filter: drop-shadow(0 0 6px rgba(14, 165, 233, 0.5)) 
                     drop-shadow(0 0 12px rgba(139, 92, 246, 0.3))
@@ -182,7 +189,6 @@
                     scale(1.03);
         }
         
-        /* Logo hover glow effect */
         .logo-hover-glow {
             transition: all 0.3s ease;
         }
@@ -198,13 +204,16 @@
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 antialiased font-montserrat">
-    <!-- Navigation -->
+
+    <!-- =================================================
+    Navigation Bar
+    ================================================== -->
     <nav class="fixed w-full bg-slate-900/90 backdrop-blur-md z-50 border-b border-slate-800">
         <div id="div-1" class="container mx-auto px-6 py-4">
             <div id="div-2" class="flex justify-between items-center">
-                <a href="#home" class="flex items-center">
-                    <img src="assets/images/LB-Logo5-03.webp?v=2" alt="Lucas Burda Logo" class="logo-hover-glow h-10 w-auto transition-transform duration-300 hover:scale-110 hover:rotate-2">
-                </a>
+                <!-- Logo -->
+                <a href="#home" class="flex items-center" aria-label="Homepage"><img src="assets/images/LB-Logo5-03.webp?v=2" alt="Lucas Burda Logo" class="logo-hover-glow h-10 w-auto transition-transform duration-300 hover:scale-110 hover:rotate-2"></a>
+                <!-- Desktop Menu -->
                 <div id="div-3" class="hidden md:flex space-x-8">
                     <a href="#home" class="nav-link hover:text-cyan-400 transition-colors">Home</a>
                     <a href="#about" class="nav-link hover:text-cyan-400 transition-colors">About</a>
@@ -212,12 +221,13 @@
                     <a href="#skills" class="nav-link hover:text-cyan-400 transition-colors">Skills</a>
                     <a href="#contact" class="nav-link hover:text-cyan-400 transition-colors">Contact</a>
                 </div>
+                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="md:hidden text-xl">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
-        <!-- Mobile menu -->
+        <!-- Mobile Menu (collapsible) -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-800 w-full py-4 px-6">
             <div id="div-4" class="flex flex-col space-y-4">
                 <a href="#home" class="nav-link hover:text-cyan-400 transition-colors">Home</a>
@@ -229,18 +239,24 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- =================================================
+    Hero Section
+    ================================================== -->
     <section id="home" class="min-h-screen flex items-center pt-20">
         <div id="div-5" class="container mx-auto px-6 py-20">
             <div id="div-6" class="flex flex-col md:flex-row items-center">
+                <!-- Hero Text Content -->
                 <div id="div-7" class="md:w-1/2 mb-12 md:mb-0 animate-fade-in text-center md:text-left">
                     <h1 class="text-4xl md:text-6xl font-bold mb-5">Hi, I'm <span class="gradient-text">Lucas Burda</span></h1>
-                    <h2 class="text-xl md:text-2xl text-cyan-400 mb-8">Web Developer, Flipper Zero Developer, and Penetration Tester</h2>
+                    <h2 class="text-xl md:text-2xl text-cyan-400 mb-8 h-8 md:h-auto">
+                        <span id="typing-subtitle"></span><span class="inline-block animate-pulse">|</span>
+                    </h2>
                     <p class="text-slate-300 mb-8 mx-auto md:mx-0 max-w-xl">
                         I'm a passionate developer and technologist with a love for all things security and technology. 
                         With expertise in modern web technologies and offensive cybersecurity, I specialize in building 
-                        scalable applications that solve real-world problems no matter the application.
+                        scalable applications that solve real-world problems no matter the use-case.
                     </p>
+                    <!-- Action Buttons -->
                     <div id="div-8" class="flex flex-wrap gap-4 justify-center md:justify-start">
                         <a href="#projects" class="btn-animated hero-btn-pop px-6 py-3 bg-cyan-600 hover:bg-cyan-700 rounded-lg font-medium transition-colors animate-fade-in delay-100">
                             View My Work
@@ -250,6 +266,7 @@
                         </a>
                     </div>
                 </div>
+                <!-- Profile Photo -->
                 <div id="div-9" class="md:w-1/2 flex justify-center animate-fade-in delay-300">
                     <div id="div-10" class="relative">
                         <img src="https://lucasburda.com/assets/images/PFP.webp" alt="Lucas Burda" class="profile-photo rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-cyan-400/30">
@@ -261,7 +278,9 @@
         </div>
     </section>
 
-    <!-- Promo Banner Section -->
+    <!-- =================================================
+    Promo Banner Section
+    ================================================== -->
     <section id="promo" class="bg-slate-800/50 py-6 border-y border-slate-700/50">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-center gap-x-8 gap-y-4">
@@ -279,11 +298,14 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- =================================================
+    About Section
+    ================================================== -->
     <section id="about" class="py-20 bg-slate-800/50">
         <div id="div-13" class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center gradient-text">About Me</h2>
             <div id="div-14" class="flex flex-col md:flex-row gap-12">
+                <!-- About Text -->
                 <div id="div-15" class="md:w-1/2 animate-fade-in">
                     <p class="text-slate-300 mb-6">
                         I'm a passionate developer and technologist with a love for all things security and technology. 
@@ -302,6 +324,7 @@
                         </p>
                     </div>
                 </div>
+                <!-- Stats Grid -->
                 <div id="div-17" class="md:w-1/2 animate-fade-in delay-100">
                     <div id="div-18" class="grid grid-cols-2 gap-6">
                         <div id="div-19" class="stat bg-slate-800/50 p-6 rounded-xl border border-slate-700 text-center tile-hover">
@@ -326,12 +349,14 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- =================================================
+    Projects Section
+    ================================================== -->
     <section id="projects" class="py-20">
         <div id="div-23" class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Featured Projects</h2>
             <div id="div-24" class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
+                <!-- Project Card 1: HackerBodega.com -->
                 <div id="div-25" class="project-card bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700 transition-all duration-300 animate-fade-in tile-hover">
                     <div id="div-26" class="h-48 overflow-hidden">
                         <img src="https://lucasburda.com/assets/images/Bodega.webp" alt="HackerBodega.com" class="w-full h-full object-cover">
@@ -339,17 +364,26 @@
                     <div id="div-27" class="p-6">
                         <h3 class="text-xl font-bold mb-2">HackerBodega.com</h3>
                         <p class="text-slate-300 mb-4">
-                            A digital superstore for hackers and tinkerers—find cyber gadgets, tools, and gear for ethical hacking and tech.
+                            A digital superstore for hackers and tinkerers. find cyber gadgets, tools, and gear for ethical hacking and tech.
                         </p>
                         <div id="div-28" class="flex flex-wrap gap-2 mb-4">
                             <span class="skill-pill bg-cyan-900/50 text-cyan-400 px-3 py-1 rounded-full text-sm transition-transform">HTML</span>
                             <span class="skill-pill bg-cyan-900/50 text-cyan-400 px-3 py-1 rounded-full text-sm transition-transform">CSS</span>
                             <span class="skill-pill bg-cyan-900/50 text-cyan-400 px-3 py-1 rounded-full text-sm transition-transform">JavaScript</span>
                         </div>
+                        <!-- Project Links -->
+                        <div class="flex space-x-4 mt-4 justify-center">
+                            <!-- <a href="https://hackerbodega.com/" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
+                                Live Demo <i class="fas fa-external-link-alt ml-2"></i>
+                            </a> -->
+                            <a href="https://github.com/iShowLinux/CyberBodega" target="_blank" class="inline-flex items-center text-slate-400 hover:text-cyan-300 transition-colors font-medium">
+                                View Code <i class="fab fa-github ml-2"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Project 2 -->
+                <!-- Project Card 2: Coming Soon -->
                 <div id="div-29" class="project-card bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700 transition-all duration-300 animate-fade-in delay-100 tile-hover">
                     <div id="div-30" class="h-48 bg-gradient-to-br from-purple-900/50 to-blue-900/50 flex items-center justify-center">
                         <i class="fas fa-lock text-6xl opacity-30"></i>
@@ -372,12 +406,14 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- =================================================
+    Skills Section
+    ================================================== -->
     <section id="skills" class="py-20 bg-slate-800/50">
         <div id="div-34" class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Skills & Technologies</h2>
             <div id="div-35" class="grid md:grid-cols-3 gap-8">
-                <!-- Frontend -->
+                <!-- Skill Category: Frontend -->
                 <div id="div-36" class="animate-fade-in">
                     <div id="div-37" class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 h-full tile-hover">
                         <h3 class="text-xl font-semibold mb-4 text-cyan-400 flex items-center">
@@ -391,7 +427,7 @@
                     </div>
                 </div>
                 
-                <!-- Backend -->
+                <!-- Skill Category: Backend -->
                 <div id="div-39" class="animate-fade-in delay-100">
                     <div id="div-40" class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 h-full tile-hover">
                         <h3 class="text-xl font-semibold mb-4 text-purple-400 flex items-center">
@@ -403,7 +439,7 @@
                     </div>
                 </div>
                 
-                <!-- Tools -->
+                <!-- Skill Category: Tools & Others -->
                 <div id="div-42" class="animate-fade-in delay-200">
                     <div id="div-43" class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 h-full tile-hover">
                         <h3 class="text-xl font-semibold mb-4 text-emerald-400 flex items-center">
@@ -413,8 +449,6 @@
                             <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">Git</span>
                             <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">Docker</span>
                             <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">Linux</span>
-                            <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">Kali Linux</span>
-                            <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">Flipper Zero</span>
                             <span class="skill-pill bg-emerald-900/50 text-emerald-400 px-4 py-2 rounded-lg transition-transform">M5Stick</span>
                         </div>
                     </div>
@@ -423,16 +457,20 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- =================================================
+    Contact Section
+    ================================================== -->
     <section id="contact" class="py-20">
         <div id="div-45" class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Get In Touch</h2>
             <div id="div-46" class="flex flex-col md:flex-row gap-12">
+                <!-- Contact Info -->
                 <div id="div-47" class="md:w-1/2 animate-fade-in">
                     <h3 class="text-2xl font-semibold mb-4">Let's work together!</h3>
                     <p class="text-slate-300 mb-8">
                         I'm always interested in new opportunities and projects. Feel free to reach out if you'd like to collaborate or just want to chat.
                     </p>
+                    <!-- Contact Methods -->
                     <div id="div-48" class="space-y-6">
                         <div id="div-49" class="flex items-start contact-method">
                             <i class="fas fa-envelope text-cyan-400 mt-1 mr-4"></i>
@@ -445,9 +483,10 @@
                             <i class="fas fa-map-marker-alt text-cyan-400 mt-1 mr-4"></i>
                             <div id="div-52">
                                 <h4 class="font-semibold">Location</h4>
-                                <p class="text-slate-300">Spokane, WA</p>
+                                <p class="text-slate-300">Spokane, WA.</p>
                             </div>
                         </div>
+                        <!-- Social Links -->
                         <div id="div-53" class="flex space-x-5 mt-8">
                             <a href="https://github.com/StrawHatAres61" target="_blank" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-cyan-600 transition-colors">
                                 <i class="fab fa-github text-xl"></i>
@@ -458,6 +497,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Contact Form -->
                 <div id="div-54" class="md:w-1/2 animate-fade-in delay-100">
                     <form class="contact-form bg-slate-800/50 p-8 rounded-xl border border-slate-700">
                         <div id="div-55" class="mb-6">
@@ -481,25 +521,33 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- =================================================
+    Footer
+    ================================================== -->
     <footer class="py-8 border-t border-slate-800">
         <div id="div-58" class="container mx-auto px-6 text-center">
             <p class="text-slate-400">© 2025 Lucas Burda. All rights reserved.</p>
         </div>
     </footer>
-    <!-- Back to top button -->
+
+    <!-- =================================================
+    Back to Top Button
+    ================================================== -->
     <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-cyan-600 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity opacity-0 invisible">
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- =================================================
+    Page Scripts
+    ================================================== -->
     <script>
-        // Mobile menu toggle
+        // --- Mobile Menu Toggle ---
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
 
-        // Smooth scrolling for navigation links
+        // --- Smooth Scrolling for Anchor Links ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -522,7 +570,7 @@
             });
         });
 
-        // Back to top button
+        // --- Back to Top Button Logic ---
         const backToTopButton = document.getElementById('back-to-top');
         
         window.addEventListener('scroll', function() {
@@ -542,7 +590,41 @@
             });
         });
 
-        // Form submission
+        // --- Dynamic Typing Effect for Hero Subtitle ---
+        const roles = ["Web Developer", "Penetration Tester"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        const subtitleElement = document.getElementById('typing-subtitle');
+        const cursorSpan = subtitleElement.nextElementSibling;
+        const typingSpeed = 100;
+        const erasingSpeed = 50;
+        const delayBetweenRoles = 2000;
+
+        function type() {
+            cursorSpan.classList.remove('animate-pulse');
+            if (charIndex < roles[roleIndex].length) {
+                subtitleElement.textContent += roles[roleIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingSpeed);
+            } else {
+                cursorSpan.classList.add('animate-pulse');
+                setTimeout(erase, delayBetweenRoles);
+            }
+        }
+
+        function erase() {
+            cursorSpan.classList.remove('animate-pulse');
+            if (charIndex > 0) {
+                subtitleElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingSpeed);
+            } else {
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(type, typingSpeed + 500);
+            }
+        }
+
+        // --- Contact Form Submission (mailto) ---
         const form = document.querySelector('.contact-form');
         if (form) {
             form.addEventListener('submit', function(e) {
@@ -571,7 +653,7 @@
             });
         }
 
-        // Intersection Observer for animations
+        // --- Intersection Observer for Fade-in Animations on Scroll ---
         const observerOptions = {
             threshold: 0.1
         };
@@ -588,6 +670,11 @@
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
         });
+
+        // --- Initializations on Page Load ---
+        if (subtitleElement) {
+            setTimeout(type, 1000);
+        }
     </script>
 </body>
 </html> 
