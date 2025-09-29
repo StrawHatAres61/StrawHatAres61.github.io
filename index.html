@@ -24,9 +24,27 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) rotate(-15deg);
+            }
+            75% {
+                transform: scale(1.05) rotate(5deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
         
         .animate-fade-in {
             animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-pop-in {
+            animation: popIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
         
         /* Animation Delays */
@@ -155,7 +173,7 @@
             transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s cubic-bezier(.4,2,.6,1);
             will-change: transform, box-shadow;
         }
-        .hero-btn-pop:hover, .hero-btn-pop:focus {
+        .hero-btn-pop:hover {
             transform: scale(1.11) rotate(-1.5deg);
             box-shadow: 0 8px 32px 0 rgba(14,165,233,0.18), 0 2px 12px 0 rgba(139,92,246,0.13);
             z-index: 2;
@@ -267,9 +285,9 @@
                     </div>
                 </div>
                 <!-- Profile Photo -->
-                <div id="div-9" class="md:w-1/2 flex justify-center animate-fade-in delay-300">
+                <div id="div-9" class="md:w-1/2 flex justify-center animate-pop-in delay-300">
                     <div id="div-10" class="relative">
-                        <img src="https://lucasburda.com/assets/images/PFP.webp" alt="Lucas Burda" class="profile-photo rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-cyan-400/30">
+                        <img src="assets/images/HeadshotBlue.webp" alt="Lucas Burda" class="profile-photo rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-cyan-400/30">
                         <div id="div-11" class="pfp-glow"></div>
                         <div id="div-12" class="absolute -inset-4 rounded-full border-2 border-cyan-400/50 animate-pulse"></div>
                     </div>
@@ -285,14 +303,14 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-center gap-x-8 gap-y-4">
                 <div class="flex items-center gap-4 text-center md:text-left">
-                    <i class="fab fa-twitch text-purple-400 text-4xl flex-shrink-0"></i>
+                    <i class="fas fa-link text-purple-400 text-4xl flex-shrink-0"></i>
                     <div>
-                        <h3 class="font-semibold text-lg text-slate-100">Check out my buddy Owen and his streams</h3>
-                        <p class="text-slate-300">He mostly plays games and chats so go give him a follow</p>
+                        <h3 class="font-semibold text-lg text-slate-100">Check out my buddy Owen's Linktree</h3>
+                        <p class="text-slate-300">You can find all of his socials and content there.</p>
                     </div>
                 </div>
-                <a href="https://www.twitch.tv/pizzaroo" target="_blank" rel="noopener noreferrer" class="btn-animated hero-btn-pop inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-medium transition-colors shadow-lg whitespace-nowrap">
-                    Watch on Twitch <i class="fas fa-external-link-alt ml-2"></i>
+                <a href="https://linktr.ee/pizzaroo" target="_blank" rel="noopener noreferrer" class="btn-animated hero-btn-pop inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-medium transition-colors shadow-lg whitespace-nowrap">
+                    View Linktree <i class="fas fa-external-link-alt ml-2"></i>
                 </a>
             </div>
         </div>
@@ -373,9 +391,6 @@
                         </div>
                         <!-- Project Links -->
                         <div class="flex space-x-4 mt-4 justify-center">
-                            <!-- <a href="https://hackerbodega.com/" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
-                                Live Demo <i class="fas fa-external-link-alt ml-2"></i>
-                            </a> -->
                             <a href="https://github.com/iShowLinux/CyberBodega" target="_blank" class="inline-flex items-center text-slate-400 hover:text-cyan-300 transition-colors font-medium">
                                 View Code <i class="fab fa-github ml-2"></i>
                             </a>
