@@ -346,6 +346,17 @@ section {
     transform: translateY(-2px);
 }
 
+/* Prevent text-insertion caret on decorative/heading elements */
+h1, h2, h3, h4,
+.hero-title, .hero-subtitle, .section-title, .section-line,
+.stat h3, .stat p,
+.project-label, .project-title, .project-tagline,
+.skill-category h3, .promo-banner {
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+}
+
 /* =============================================================
    8. Section Titles
    ============================================================= */
