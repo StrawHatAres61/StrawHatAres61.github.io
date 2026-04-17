@@ -9,15 +9,10 @@
     -webkit-user-select: none;
 }
 
-/* Re-enable selection only for content users might want to copy */
-.about-text p,
-.project-description p,
-.project-description li,
-.project-description code,
+/* Re-enable selection only for interactive form fields and copyable links */
 .contact-method a,
 .contact-form input,
-.contact-form textarea,
-.footer p {
+.contact-form textarea {
     user-select: text;
     -webkit-user-select: text;
 }
@@ -458,8 +453,8 @@ h1, h2, h3, h4,
 }
 
 .about-photo {
-    width: 380px;
-    height: 240px;
+    width: 300px;
+    height: 300px;
     border-radius: 12px;
     object-fit: cover;
     border: 1px solid var(--border);
