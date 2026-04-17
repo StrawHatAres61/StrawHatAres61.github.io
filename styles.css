@@ -229,10 +229,10 @@ section {
     align-items: center;
     justify-content: center;
     padding-top: var(--nav-height);
-    background-image: linear-gradient(rgba(8,8,8,0.78) 0%, rgba(8,8,8,0.95) 100%),
+    background-image: linear-gradient(rgba(8,8,8,0.60) 0%, rgba(8,8,8,0.90) 100%),
                       url('assets/images/Backpic.jpg');
     background-size: cover;
-    background-position: center top;
+    background-position: center 25%;
     background-repeat: no-repeat;
 }
 
@@ -423,8 +423,8 @@ section {
 }
 
 .about-photo {
-    width: 300px;
-    height: 300px;
+    width: 380px;
+    height: 240px;
     border-radius: 12px;
     object-fit: cover;
     border: 1px solid var(--border);
