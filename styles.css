@@ -305,6 +305,13 @@ section {
     border-radius: 50%;
     overflow: hidden;
     line-height: 0;
+    border: 3px solid #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.hero-image:hover {
+    border-color: #888;
+    box-shadow: 0 0 0 4px rgba(180,180,180,0.12), 0 12px 40px rgba(0,0,0,0.5);
 }
 
 .profile-photo {
@@ -312,16 +319,14 @@ section {
     height: 360px;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid var(--border);
+    border: none;
     background: transparent;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
     display: block;
 }
 
-.profile-photo:hover {
-    border-color: var(--border-hover);
-    transform: scale(1.03);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+.hero-image:hover .profile-photo {
+    transform: scale(1.04);
 }
 
 /* =============================================================
