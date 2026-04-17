@@ -119,18 +119,34 @@ function initNavScroll() {
 // ── Active nav link ───────────────────────────────────────────
 function initActiveNav() {
     const sections = document.querySelectorAll('section[id]');
-    const links    = document.querySelectorAll('.nav-link[href]');
-    if (!sections.length || !links.length) return;
+    if (!sections.length) return;
 
-    window.addEventListener('scroll', () => {
+    function update() {
+        const scrollY  = window.scrollY;
+        const atBottom = scrollY + window.innerHeight >= document.documentElement.scrollHeight - 60;
+
         let current = '';
-        sections.forEach(s => {
-            if (window.scrollY >= s.offsetTop - 120) current = s.id;
-        });
-        links.forEach(l => {
+        if (atBottom) {
+            current = sections[sections.length - 1].id;
+        } else {
+            sections.forEach(s => {
+                if (scrollY >= s.offsetTop - 100) current = s.id;
+            });
+        }
+
+        // Anchor links (Home, About, Skills, Contact)
+        document.querySelectorAll('.nav-link[href]').forEach(l => {
             l.classList.toggle('active', l.getAttribute('href') === `#${current}`);
         });
-    }, { passive: true });
+
+        // Projects dropdown trigger (span, no href)
+        document.querySelectorAll('.nav-link[data-dropdown]').forEach(trigger => {
+            trigger.classList.toggle('active', current === 'projects');
+        });
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
 }
 
 // ── Projects dropdown (mobile tap) ───────────────────────────
