@@ -37,14 +37,16 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--nav-height);
     background-color: var(--bg);
+    min-height: 100%;
 }
 
 body {
     font-family: 'JetBrains Mono', 'Space Grotesk', 'Inter', monospace;
-    background: transparent;
+    background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4 {

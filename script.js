@@ -34,7 +34,8 @@ function initStarField() {
     }
 
     function draw() {
-        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = '#080808';
+        ctx.fillRect(0, 0, w, h);
         for (const s of stars) {
             s.x += s.dx;
             s.y += s.dy;
