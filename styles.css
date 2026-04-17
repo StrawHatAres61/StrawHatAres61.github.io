@@ -38,11 +38,13 @@ html {
     scroll-padding-top: var(--nav-height);
     background-color: var(--bg);
     min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 body {
     font-family: 'JetBrains Mono', 'Space Grotesk', 'Inter', monospace;
-    background-color: var(--bg);
+    background: transparent;
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
