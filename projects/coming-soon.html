@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon — Lucas Burda</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../project.css">
+</head>
+<body>
+
+<canvas id="star-canvas" aria-hidden="true"></canvas>
+
+<!-- Nav -->
+<header class="main-header">
+    <nav class="nav-container">
+        <a href="../index.html" class="nav-brand">Lucas Burda</a>
+
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-menu" role="list">
+            <li class="nav-item"><a href="../index.html#home"    class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="../index.html#about"   class="nav-link">About</a></li>
+            <li class="nav-item">
+                <span class="nav-link active" data-dropdown tabindex="0" role="button" aria-haspopup="true">Projects</span>
+                <div class="nav-dropdown" role="menu">
+                    <a href="hackerbodega.html" role="menuitem">HackerBodega</a>
+                    <a href="flexcel.html"      role="menuitem">Flexcel</a>
+                    <a href="coming-soon.html"  role="menuitem" aria-current="page">Coming Soon</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="../index.html#skills"  class="nav-link">Skills</a></li>
+            <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Coming Soon -->
+<div class="coming-soon-page">
+    <div class="coming-soon-content">
+        <h1>Something is coming.</h1>
+        <p>Not ready yet. Check back soon.</p>
+        <a href="../index.html" class="btn btn-secondary">
+            <i class="fas fa-arrow-left" style="margin-right:0.5rem;"></i>Back to Portfolio
+        </a>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 Lucas Burda. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

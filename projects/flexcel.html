@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexcel Linux Fork — Lucas Burda</title>
+    <meta name="description" content="Flexcel Linux Fork — a debate flowing app for competitive high school debaters.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../project.css">
+</head>
+<body>
+
+<canvas id="star-canvas" aria-hidden="true"></canvas>
+
+<!-- Nav -->
+<header class="main-header">
+    <nav class="nav-container">
+        <a href="../index.html" class="nav-brand">Lucas Burda</a>
+
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-menu" role="list">
+            <li class="nav-item"><a href="../index.html#home"    class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="../index.html#about"   class="nav-link">About</a></li>
+            <li class="nav-item">
+                <span class="nav-link active" data-dropdown tabindex="0" role="button" aria-haspopup="true">Projects</span>
+                <div class="nav-dropdown" role="menu">
+                    <a href="hackerbodega.html" role="menuitem">HackerBodega</a>
+                    <a href="flexcel.html"      role="menuitem" aria-current="page">Flexcel</a>
+                    <span role="menuitem" aria-disabled="true" class="nav-dropdown-disabled">Coming Soon</span>
+                </div>
+            </li>
+            <li class="nav-item"><a href="../index.html#skills"  class="nav-link">Skills</a></li>
+            <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Project Hero -->
+<section class="project-hero">
+    <div class="container">
+        <div class="project-hero-content">
+            <span class="project-label">Project</span>
+            <h1 class="project-title">Flexcel</h1>
+            <p class="project-tagline">
+                A Linux-native fork of the Flexcel debate flowing app. Built for competitive LD, PF, and Policy debaters.
+                8,000+ downloads. 30,000+ hours of usage.
+            </p>
+            <div class="project-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Type</span>
+                    <span class="project-meta-value">Desktop App</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Stack</span>
+                    <span class="project-meta-value">Electron / JavaScript / jQuery</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Downloads</span>
+                    <span class="project-meta-value">8,000+</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Usage</span>
+                    <span class="project-meta-value">30,000+ hrs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Body -->
+<div class="project-body">
+    <div class="container">
+        <div class="project-layout">
+
+            <!-- Screenshot -->
+            <div class="project-screenshot" data-anim="fade">
+                <div class="project-screenshot-placeholder">
+                    <span>Screenshot coming soon</span>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="project-description" data-anim="fade">
+                <h2>Overview</h2>
+                <p>
+                    Flexcel is a desktop application used by competitive high school debaters to "flow" rounds —
+                    tracking arguments in real time across LD, Policy, and PF formats. The original app didn't
+                    run properly on Linux, so I forked it and rebuilt the platform-specific pieces to make it
+                    work natively.
+                </p>
+                <p>
+                    The result is a stable, fully-featured Linux build that the debate community has adopted widely.
+                    With 8,000+ downloads and over 30,000 hours of logged usage, it's the most-used tool I've shipped.
+                </p>
+
+                <h2>What I Did</h2>
+                <ul>
+                    <li>Ported the Electron app from macOS/Windows to Linux — resolved IPC, remote module, and renderer process compatibility issues</li>
+                    <li>Replaced deprecated <code>electron.remote</code> with <code>@electron/remote</code></li>
+                    <li>Fixed Promise-based dialog APIs for file save/load</li>
+                    <li>Guarded macOS-only lifecycle hooks behind platform checks</li>
+                    <li>Configured the build pipeline to produce AppImage and .deb distributables</li>
+                    <li>Maintained backwards compatibility with existing saved flow files</li>
+                </ul>
+
+                <h2>Tech Stack</h2>
+                <div class="project-tech-stack">
+                    <span class="tech-tag">Electron</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">jQuery</span>
+                    <span class="tech-tag">Handsontable</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Linux</span>
+                </div>
+
+                <h2>Links</h2>
+                <div class="project-links-bar">
+                    <a href="https://github.com/StrawHatAres61/Flexcel" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <i class="fab fa-github" style="margin-right:0.5rem;"></i>GitHub
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Project Nav -->
+<nav class="project-nav" aria-label="Project navigation">
+    <div class="container">
+        <div class="project-nav-inner">
+            <a href="hackerbodega.html" class="project-nav-link">
+                <span>Previous Project</span>
+                <span>&larr; HackerBodega</span>
+            </a>
+            <a href="../index.html#projects" class="back-link">
+                All Projects <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 Lucas Burda. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
