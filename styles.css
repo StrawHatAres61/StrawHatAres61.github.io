@@ -38,7 +38,8 @@ html {
     scroll-padding-top: var(--nav-height);
     background-color: var(--bg);
     min-height: 100%;
-    overflow-x: clip;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -46,8 +47,13 @@ body {
     background: transparent;
     color: var(--text);
     line-height: 1.6;
-    overflow-x: clip;
+    overflow-x: hidden;
+    width: 100%;
     min-height: 100vh;
+}
+
+#star-canvas {
+    max-width: 100%;
 }
 
 h1, h2, h3, h4 {

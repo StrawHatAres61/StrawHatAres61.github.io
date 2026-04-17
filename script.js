@@ -9,8 +9,8 @@ function initStarField() {
     let w, h;
 
     function resize() {
-        w = canvas.width  = window.innerWidth;
-        h = canvas.height = window.innerHeight;
+        w = canvas.width  = document.documentElement.clientWidth;
+        h = canvas.height = document.documentElement.clientHeight;
     }
 
     function randomStar() {
