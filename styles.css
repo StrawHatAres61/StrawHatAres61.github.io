@@ -542,6 +542,16 @@ h1, h2, h3, h4,
     transform: scale(1.04);
 }
 
+.project-image img:not(.project-photo) {
+    transition: transform 0.3s, opacity 0.3s, filter 0.3s;
+}
+
+.project-card:not(.coming-soon):hover .project-image img:not(.project-photo) {
+    transform: scale(1.08);
+    opacity: 1;
+    filter: grayscale(1) invert(1) brightness(1.4);
+}
+
 .project-content {
     padding: 1.5rem;
     flex: 1;
