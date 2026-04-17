@@ -30,7 +30,7 @@ html {
 }
 
 body {
-    font-family: 'Space Grotesk', 'Inter', Arial, sans-serif;
+    font-family: 'JetBrains Mono', 'Space Grotesk', 'Inter', monospace;
     background: transparent;
     color: var(--text);
     line-height: 1.6;
@@ -102,8 +102,11 @@ section {
 }
 
 .nav-logo {
-    height: 32px;
+    height: 44px;
     width: auto;
+    max-width: 180px;
+    flex-shrink: 0;
+    display: block;
     filter: grayscale(1) invert(1);
     opacity: 0.9;
 }
@@ -232,7 +235,7 @@ section {
     background-image: linear-gradient(rgba(8,8,8,0.60) 0%, rgba(8,8,8,0.90) 100%),
                       url('assets/images/Backpic.jpg');
     background-size: cover;
-    background-position: center 25%;
+    background-position: center 10%;
     background-repeat: no-repeat;
 }
 
@@ -253,6 +256,7 @@ section {
 .hero-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
+    cursor: default;
     color: var(--white);
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
@@ -264,6 +268,7 @@ section {
     margin-bottom: 1.25rem;
     font-weight: 400;
     min-height: 2rem;
+    cursor: default;
 }
 
 .hero-description {
@@ -272,6 +277,7 @@ section {
     margin-bottom: 2.5rem;
     line-height: 1.8;
     max-width: 480px;
+    cursor: default;
 }
 
 .hero-buttons {
@@ -346,6 +352,7 @@ section {
 .section-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 800;
+    cursor: default;
     color: var(--white);
     text-align: center;
     margin-bottom: 0.75rem;
@@ -406,6 +413,7 @@ section {
 .stat h3 {
     font-size: 1.75rem;
     font-weight: 800;
+    cursor: default;
     color: var(--white);
     margin-bottom: 0.2rem;
 }
@@ -413,6 +421,7 @@ section {
 .stat p {
     font-size: 0.82rem;
     color: var(--text-muted);
+    cursor: default;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
