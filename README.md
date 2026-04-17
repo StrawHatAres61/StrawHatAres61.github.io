@@ -60,34 +60,6 @@ Live at **[lucasburda.com](https://lucasburda.com)**
 | `--accent` | `#d4d4d4` | Highlights, active states |
 | `--white` | `#ffffff` | Headings |
 
-No blue. No purple. No gradients.
-
----
-
-## Local Development
-
-```sh
-cd ~/portfolio
-python3 -m http.server 8080
-# open http://localhost:8080
-```
-
-No build step required.
-
----
-
-## Deployment
-
-Pushes to `main` deploy automatically via GitHub Pages.
-Custom domain set via CNAME → `lucasburda.com`.
-
-```sh
-git add .
-git commit -m "feat: ..."
-git push origin main
-```
-
----
 
 ## Changelog
 
