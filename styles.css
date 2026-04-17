@@ -311,11 +311,13 @@ section {
     object-fit: cover;
     border: 1px solid var(--border);
     background: var(--bg-card);
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .profile-photo:hover {
     border-color: var(--border-hover);
+    transform: scale(1.03);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
 
 /* =============================================================
@@ -426,13 +428,16 @@ h1, h2, h3, h4,
     background: var(--bg-hover);
     border: 1px solid var(--border);
     border-radius: 8px;
-    transition: border-color 0.2s, transform 0.2s;
+    transition: border-color 0.2s, transform 0.2s, background 0.2s, box-shadow 0.2s;
     text-align: center;
+    cursor: default;
 }
 
 .stat:hover {
     border-color: var(--border-hover);
-    transform: translateY(-3px);
+    background: #222;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
 .stat h3 {
@@ -463,11 +468,13 @@ h1, h2, h3, h4,
     object-fit: cover;
     border: 1px solid var(--border);
     background: var(--bg-hover);
-    transition: border-color 0.2s;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .about-photo:hover {
     border-color: var(--border-hover);
+    transform: scale(1.03);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
 
 /* =============================================================
