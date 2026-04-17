@@ -302,6 +302,9 @@ section {
 
 .hero-image {
     flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    line-height: 0;
 }
 
 .profile-photo {
@@ -310,8 +313,9 @@ section {
     border-radius: 50%;
     object-fit: cover;
     border: 1px solid var(--border);
-    background: var(--bg-card);
+    background: transparent;
     transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: block;
 }
 
 .profile-photo:hover {
