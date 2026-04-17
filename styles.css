@@ -9,8 +9,7 @@
     -webkit-user-select: none;
 }
 
-/* Re-enable selection only for interactive form fields and copyable links */
-.contact-method a,
+/* Re-enable selection only for interactive form fields */
 .contact-form input,
 .contact-form textarea {
     user-select: text;
@@ -734,11 +733,15 @@ h1, h2, h3, h4,
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 8px;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    cursor: pointer;
+    color: inherit;
 }
 
 .contact-method:hover {
     border-color: var(--border-hover);
+    background: var(--bg-hover);
+    transform: translateY(-3px);
 }
 
 .contact-method i {
