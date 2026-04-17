@@ -258,8 +258,8 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5rem;
-    max-width: 1000px;
+    gap: 6rem;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -269,7 +269,7 @@ section {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(3rem, 6vw, 5.5rem);
     font-weight: 800;
     cursor: default;
     color: var(--white);
@@ -287,7 +287,7 @@ section {
 }
 
 .hero-description {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
     margin-bottom: 2.5rem;
     line-height: 1.8;
@@ -306,8 +306,8 @@ section {
 }
 
 .profile-photo {
-    width: 280px;
-    height: 280px;
+    width: 360px;
+    height: 360px;
     border-radius: 50%;
     object-fit: cover;
     border: 1px solid var(--border);
