@@ -4,7 +4,7 @@ function initStarField() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    const STAR_COUNT = 160;
+    const STAR_COUNT = 320;
     let stars = [];
     let w, h;
 
@@ -14,14 +14,17 @@ function initStarField() {
     }
 
     function randomStar() {
+        const size = Math.random();
         return {
-            x:       Math.random() * w,
-            y:       Math.random() * h,
-            r:       Math.random() * 0.9 + 0.3,
-            dx:      (Math.random() - 0.5) * 0.12,
-            dy:      (Math.random() - 0.5) * 0.12,
-            opacity: Math.random(),
-            dOpacity: (Math.random() * 0.003 + 0.001) * (Math.random() < 0.5 ? 1 : -1),
+            x:        Math.random() * w,
+            y:        Math.random() * h,
+            r:        size < 0.6 ? Math.random() * 0.8 + 0.2
+                    : size < 0.9 ? Math.random() * 1.2 + 0.8
+                    :               Math.random() * 1.8 + 1.4,
+            dx:       (Math.random() - 0.5) * 0.35,
+            dy:       (Math.random() - 0.5) * 0.35,
+            opacity:  Math.random(),
+            dOpacity: (Math.random() * 0.008 + 0.002) * (Math.random() < 0.5 ? 1 : -1),
         };
     }
 
@@ -55,7 +58,7 @@ function initStarField() {
 
     init();
     loop();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', () => { resize(); stars = Array.from({ length: STAR_COUNT }, randomStar); });
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) { cancelAnimationFrame(rafId); rafId = null; }
         else if (!rafId)     { loop(); }
