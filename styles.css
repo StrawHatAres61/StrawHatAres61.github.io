@@ -458,8 +458,8 @@ h1, h2, h3, h4,
 }
 
 .about-photo {
-    width: 380px;
-    height: 240px;
+    width: 520px;
+    height: 340px;
     border-radius: 12px;
     object-fit: cover;
     border: 1px solid var(--border);
