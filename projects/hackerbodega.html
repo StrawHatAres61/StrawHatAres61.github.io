@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackerBodega — Lucas Burda</title>
+    <meta name="description" content="HackerBodega — a digital superstore for hackers and tinkerers.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../project.css">
+</head>
+<body>
+
+<canvas id="star-canvas" aria-hidden="true"></canvas>
+
+<!-- Nav -->
+<header class="main-header">
+    <nav class="nav-container">
+        <a href="../index.html" class="nav-brand">Lucas Burda</a>
+
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-menu" role="list">
+            <li class="nav-item"><a href="../index.html#home"    class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="../index.html#about"   class="nav-link">About</a></li>
+            <li class="nav-item">
+                <span class="nav-link active" data-dropdown tabindex="0" role="button" aria-haspopup="true">Projects</span>
+                <div class="nav-dropdown" role="menu">
+                    <a href="hackerbodega.html" role="menuitem" aria-current="page">HackerBodega</a>
+                    <a href="flexcel.html"      role="menuitem">Flexcel</a>
+                    <span role="menuitem" aria-disabled="true" class="nav-dropdown-disabled">Coming Soon</span>
+                </div>
+            </li>
+            <li class="nav-item"><a href="../index.html#skills"  class="nav-link">Skills</a></li>
+            <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Project Hero -->
+<section class="project-hero">
+    <div class="container">
+        <div class="project-hero-content">
+            <span class="project-label">Project</span>
+            <h1 class="project-title">HackerBodega</h1>
+            <p class="project-tagline">
+                A digital superstore for hackers and tinkerers. Find cyber gadgets, tools, and gear for ethical hacking and tech.
+            </p>
+            <div class="project-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Type</span>
+                    <span class="project-meta-value">E-Commerce Site</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Stack</span>
+                    <span class="project-meta-value">HTML / CSS / JavaScript</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Status</span>
+                    <span class="project-meta-value">Live</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Body -->
+<div class="project-body">
+    <div class="container">
+        <div class="project-layout">
+
+            <!-- Screenshot -->
+            <div class="project-screenshot" data-anim="fade">
+                <img src="../assets/images/Bodega.webp" alt="HackerBodega screenshot" loading="lazy">
+            </div>
+
+            <!-- Description -->
+            <div class="project-description" data-anim="fade">
+                <h2>Overview</h2>
+                <p>
+                    HackerBodega is a curated online storefront aimed at the ethical hacking and maker community.
+                    The goal was simple: one place to find the hardware and gear that you actually want as a security
+                    researcher or tinkerer, without wading through consumer junk.
+                </p>
+
+                <h2>What I Built</h2>
+                <ul>
+                    <li>Custom front-end built from scratch — no frameworks, no templates</li>
+                    <li>Product catalog with category filtering</li>
+                    <li>Responsive layout that works across mobile and desktop</li>
+                    <li>Clean, fast-loading pages with minimal dependencies</li>
+                </ul>
+
+                <h2>Tech Stack</h2>
+                <div class="project-tech-stack">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+
+                <h2>Links</h2>
+                <div class="project-links-bar">
+                    <a href="https://github.com/iShowLinux/CyberBodega" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <i class="fab fa-github" style="margin-right:0.5rem;"></i>GitHub
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Project Nav -->
+<nav class="project-nav" aria-label="Project navigation">
+    <div class="container">
+        <div class="project-nav-inner">
+            <a href="../index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+            <a href="flexcel.html" class="project-nav-link" style="text-align:right;">
+                <span>Next Project</span>
+                <span>Flexcel &rarr;</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 Lucas Burda. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
