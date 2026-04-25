@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexcel Linux Fork — Lucas Burda</title>
-    <meta name="description" content="Flexcel Linux Fork — a debate flowing app for competitive high school debaters.">
+    <title>Incisive — Lucas Burda</title>
+    <meta name="description" content="Incisive — a browser extension that cuts debate evidence cards from any web article in Kankee/Verbatim format.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,8 +35,8 @@
                 <span class="nav-link active" data-dropdown tabindex="0" role="button" aria-haspopup="true">Projects</span>
                 <div class="nav-dropdown" role="menu">
                     <a href="hackerbodega.html" role="menuitem">HackerBodega</a>
-                    <a href="flexcel.html"      role="menuitem" aria-current="page">Flexcel</a>
-                    <a href="incisive.html" role="menuitem">Incisive</a>
+                    <a href="flexcel.html"      role="menuitem">Flexcel</a>
+                    <a href="incisive.html"     role="menuitem" aria-current="page">Incisive</a>
                 </div>
             </li>
             <li class="nav-item"><a href="../index.html#skills"  class="nav-link">Skills</a></li>
@@ -50,22 +50,22 @@
     <div class="container">
         <div class="project-hero-content">
             <span class="project-label">Project</span>
-            <h1 class="project-title">Flexcel</h1>
+            <h1 class="project-title">Incisive</h1>
             <p class="project-tagline">
-                A Linux-native fork of the Flexcel debate flowing app. Built for competitive LD, PF, and Policy debaters.
+                A browser extension that cuts debate evidence cards from any article — auto-parsed citation, formatted body text, and clipboard-ready in seconds.
             </p>
             <div class="project-meta">
                 <div class="project-meta-item">
                     <span class="project-meta-label">Type</span>
-                    <span class="project-meta-value">Desktop App</span>
+                    <span class="project-meta-value">Browser Extension</span>
                 </div>
                 <div class="project-meta-item">
                     <span class="project-meta-label">Stack</span>
-                    <span class="project-meta-value">Electron / JavaScript / jQuery</span>
+                    <span class="project-meta-value">JavaScript / Chrome MV3 / Firefox MV3</span>
                 </div>
                 <div class="project-meta-item">
                     <span class="project-meta-label">Platform</span>
-                    <span class="project-meta-value">Linux</span>
+                    <span class="project-meta-value">Chrome, Firefox</span>
                 </div>
             </div>
         </div>
@@ -78,46 +78,47 @@
         <div class="project-layout">
 
             <!-- Screenshot -->
-            <div class="project-screenshot" data-anim="fade">
-                <img src="../assets/images/Flex.png" alt="Flexcel app screenshot" loading="lazy">
+            <div class="project-screenshot" data-anim="fade" style="background:#0d0d0d; display:flex; align-items:center; justify-content:center; padding:3rem; border-radius:8px;">
+                <img src="../assets/images/Incisive-mark.svg" alt="Incisive logo" loading="lazy" style="max-width:220px; width:100%; height:auto;">
             </div>
 
             <!-- Description -->
             <div class="project-description" data-anim="fade">
                 <h2>Overview</h2>
                 <p>
-                    I compete in LD debate, so Flexcel is a tool I actually use. It tracks arguments in real time
-                    across LD, Policy, and PF formats — essentially a structured spreadsheet built for flowing rounds.
-                    The problem: the original app had no Linux build.
+                    Card cutting is one of the most time-consuming parts of competitive debate prep. The standard workflow — copy text, open a doc, manually type the citation, format the card — takes minutes per card. Incisive cuts that to seconds.
                 </p>
                 <p>
-                    I forked it, diagnosed the platform-specific failures, and shipped a native Linux release. Every
-                    fix was made with the user in mind — because I am the user.
+                    Press Alt+C on any article. The extension parses the author, title, publication, date, and URL automatically, loads your selected text into the card body, and gives you a formatting toolbar. Hit Cut Card and it's in your clipboard — rich HTML with bold, underline, and highlight intact, ready to paste directly into Verbatim or Google Docs.
                 </p>
 
-                <h2>What I Did</h2>
+                <h2>What I Built</h2>
                 <ul>
-                    <li>Ported the Electron app from macOS/Windows to Linux — resolved IPC, remote module, and renderer process compatibility issues</li>
-                    <li>Replaced deprecated <code>electron.remote</code> with <code>@electron/remote</code></li>
-                    <li>Fixed Promise-based dialog APIs for file save/load</li>
-                    <li>Guarded macOS-only lifecycle hooks behind platform checks</li>
-                    <li>Configured the build pipeline to produce AppImage and .deb distributables</li>
-                    <li>Maintained backwards compatibility with existing saved flow files</li>
+                    <li>Manifest V3 extension for Chrome (published to Chrome Web Store) and Firefox</li>
+                    <li>Citation parser that chains Open Graph tags, JSON-LD structured data, and DOM heuristics — covers most major news sites and journals without any configuration</li>
+                    <li>Inline card editor with formatting tools: bold+underline, underline, shrink, and highlight with color swatches</li>
+                    <li>Dual-format clipboard output: rich HTML preserves formatting when pasted into Word, Google Docs, or Verbatim; plain text fallback for everything else</li>
+                    <li>Persistent card state and settings (font, bold mode, theme, highlight color) via <code>chrome.storage.local</code></li>
+                    <li>MutationObserver to prevent users from accidentally deleting structural card elements</li>
+                    <li>Context menu integration: right-click selected text to cut directly</li>
                 </ul>
 
                 <h2>Tech Stack</h2>
                 <div class="project-tech-stack">
-                    <span class="tech-tag">Electron</span>
                     <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">jQuery</span>
-                    <span class="tech-tag">Handsontable</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Linux</span>
+                    <span class="tech-tag">Chrome MV3</span>
+                    <span class="tech-tag">Firefox MV3</span>
+                    <span class="tech-tag">Web Extensions API</span>
+                    <span class="tech-tag">Clipboard API</span>
+                    <span class="tech-tag">JSON-LD</span>
                 </div>
 
                 <h2>Links</h2>
                 <div class="project-links-bar">
-                    <a href="https://github.com/StrawHatAres61/Flexcel" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <a href="https://chromewebstore.google.com/search/Incisive" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <i class="fab fa-chrome" style="margin-right:0.5rem;"></i>Chrome Web Store
+                    </a>
+                    <a href="https://github.com/StrawHatAres61/Incisive" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                         <i class="fab fa-github" style="margin-right:0.5rem;"></i>GitHub
                     </a>
                 </div>
@@ -131,13 +132,12 @@
 <nav class="project-nav" aria-label="Project navigation">
     <div class="container">
         <div class="project-nav-inner">
-            <a href="hackerbodega.html" class="project-nav-link">
+            <a href="flexcel.html" class="project-nav-link">
                 <span>Previous Project</span>
-                <span>&larr; HackerBodega</span>
+                <span>&larr; Flexcel</span>
             </a>
-            <a href="incisive.html" class="project-nav-link" style="text-align:right;">
-                <span>Next Project</span>
-                <span>Incisive &rarr;</span>
+            <a href="../index.html#projects" class="back-link">
+                All Projects <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </div>
