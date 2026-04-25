@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="340" height="80" viewBox="0 0 340 80"
+     xmlns="http://www.w3.org/2000/svg" overflow="visible">
+  <rect width="340" height="80" fill="#080808"/>
+  <g>
+  <!-- Top piece: TL corner → top edge → TR cut point → diagonal → BL cut point → up left edge -->
+  <path d="M 12 58 L 12 19 Q 12 14 17 14 L 63 14 L 68 14 Z"
+        fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- Bottom piece: rotates 6° CW around BL corner (12,58) — the falling half -->
+  <g transform="rotate(6, 12, 58)">
+    <path d="M 68 14 L 68 53 Q 68 58 63 58 L 17 58 L 12 58 Z"
+          fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
+  </g>
+  <!-- Slash: exact corner-to-corner (BL→TR), extended ~14px past each end -->
+  <line x1="1" y1="67" x2="79" y2="5"
+        stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+  <text x="98" y="55"
+        font-family="'Segoe UI', system-ui, -apple-system, sans-serif"
+        font-size="40" font-weight="700" fill="#ffffff"
+        letter-spacing="-0.8">Incisive</text>
+</svg>
